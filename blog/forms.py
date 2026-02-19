@@ -6,6 +6,8 @@ from .models import Comment, Post
 
 
 class PostForm(forms.ModelForm):
+    """Form for creating and editing blog posts."""
+
     class Meta:
         model = Post
         fields = ['title', 'game_type', 'excerpt', 'content', 'published']
@@ -16,6 +18,8 @@ class PostForm(forms.ModelForm):
 
 
 class CommentForm(forms.ModelForm):
+    """Form for users to add comments to posts."""
+
     class Meta:
         model = Comment
         fields = ['body']
@@ -25,6 +29,8 @@ class CommentForm(forms.ModelForm):
 
 
 class SignUpForm(UserCreationForm):
+    """User registration form with email field added."""
+
     email = forms.EmailField(required=True)
 
     class Meta:

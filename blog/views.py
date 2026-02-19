@@ -20,6 +20,8 @@ from .models import Like, Post
 
 
 class PostListView(ListView):
+    """Display a list of all published blog posts."""
+
     model = Post
     template_name = 'blog/post_list.html'
     context_object_name = 'posts'
@@ -29,6 +31,8 @@ class PostListView(ListView):
 
 
 class PostDetailView(DetailView):
+    """Display a single blog post with its comments and like status."""
+
     model = Post
     template_name = 'blog/post_detail.html'
     context_object_name = 'post'
@@ -47,6 +51,7 @@ class PostDetailView(DetailView):
         return context
 
     def post(self, request, *args, **kwargs):
+        """Handle comment form submission when a user adds a comment."""
         if not request.user.is_authenticated:
             return redirect_to_login(request.get_full_path())
         self.object = self.get_object()
@@ -63,6 +68,8 @@ class PostDetailView(DetailView):
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
+    """Allow logged-in users to create a new blog post."""
+
     model = Post
     form_class = PostForm
     template_name = 'blog/post_form.html'
@@ -76,6 +83,8 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    """Allow post authors to edit their own posts."""
+
     model = Post
     form_class = PostForm
     template_name = 'blog/post_form.html'
@@ -91,6 +100,8 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    """Allow post authors to delete their own posts."""
+
     model = Post
     template_name = 'blog/post_confirm_delete.html'
     success_url = reverse_lazy('blog:post_list')
@@ -106,6 +117,8 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 class SignUpView(CreateView):
+    """Handle new user registration."""
+
     form_class = SignUpForm
     template_name = 'blog/register.html'
     success_url = reverse_lazy('login')
@@ -120,6 +133,10 @@ class SignUpView(CreateView):
 
 @login_required
 def toggle_like(request, slug):
+    """
+    Toggle like/unlike for a post.
+    Creates a like if it doesn't exist, removes it if it does.
+    """
     post = get_object_or_404(Post, slug=slug)
     like, created = Like.objects.get_or_create(post=post, user=request.user)
     if not created:
