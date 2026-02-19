@@ -16,7 +16,7 @@ from django.views.generic import (
 )
 
 from .forms import CommentForm, PostForm, SignUpForm
-from .models import Like, Post
+from .models import Like, Post, Tag
 
 
 class PostListView(ListView):
@@ -29,18 +29,23 @@ class PostListView(ListView):
     def get_queryset(self):
         queryset = Post.objects.filter(published=True)
         game_type = self.request.GET.get('type')
+        tag_slug = self.request.GET.get('tag')
         search = self.request.GET.get('q')
         valid_types = {key for key, _ in Post.GAME_TYPES}
         if game_type in valid_types:
             queryset = queryset.filter(game_type=game_type)
+        if tag_slug:
+            queryset = queryset.filter(tags__slug=tag_slug)
         if search:
             queryset = queryset.filter(title__icontains=search)
-        return queryset
+        return queryset.distinct()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['game_types'] = Post.GAME_TYPES
+        context['tags'] = Tag.objects.all()
         context['current_type'] = self.request.GET.get('type', '')
+        context['current_tag'] = self.request.GET.get('tag', '')
         context['search_query'] = self.request.GET.get('q', '')
         return context
 

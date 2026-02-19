@@ -81,6 +81,25 @@
                 color: #fff;
                 border-color: var(--accent);
             }
+            .tag-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.4rem;
+                margin: 0.75rem 0;
+            }
+            .tag-chip {
+                display: inline-block;
+                padding: 0.2rem 0.6rem;
+                border-radius: 999px;
+                background: #f0ede7;
+                color: var(--ink);
+                text-decoration: none;
+                font-size: 0.85rem;
+                font-weight: 600;
+            }
+            .tag-chip.active {
+                background: var(--accent-2);
+            }
             .post-image {
                 width: 100%;
                 max-height: 320px;

@@ -3,6 +3,24 @@ from django.db import models
 from django.utils.text import slugify
 
 
+class Tag(models.Model):
+    """A preset tag used to label and filter posts."""
+
+    name = models.CharField(max_length=50, unique=True)
+    slug = models.SlugField(max_length=60, unique=True, blank=True)
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+
 class Post(models.Model):
     """A blog post about a video game, board game, or tabletop game."""
 
@@ -18,6 +36,9 @@ class Post(models.Model):
         max_length=20, choices=GAME_TYPES, default='video'
     )
     excerpt = models.CharField(max_length=240, blank=True)
+    tags = models.ManyToManyField(
+        Tag, related_name='posts', blank=True
+    )
     image = models.ImageField(
         upload_to='posts/', blank=True, null=True
     )
@@ -95,4 +116,3 @@ class Like(models.Model):
 
     def __str__(self):
         return f"{self.user} likes {self.post}"
-

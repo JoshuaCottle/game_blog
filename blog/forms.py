@@ -14,6 +14,7 @@ class PostForm(forms.ModelForm):
             'title',
             'game_type',
             'excerpt',
+            'tags',
             'image',
             'content',
             'published',

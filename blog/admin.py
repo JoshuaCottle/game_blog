@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Comment, Like, Post
+from .models import Comment, Like, Post, Tag
 
 
 @admin.register(Post)
@@ -11,6 +11,16 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('game_type', 'published', 'created_at')
     search_fields = ('title', 'content', 'author__username')
     prepopulated_fields = {'slug': ('title',)}
+    filter_horizontal = ('tags',)
+
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    """Admin interface for managing preset tags."""
+
+    list_display = ('name', 'slug')
+    search_fields = ('name',)
+    prepopulated_fields = {'slug': ('name',)}
 
 
 @admin.register(Comment)
