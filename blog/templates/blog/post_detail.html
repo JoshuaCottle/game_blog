@@ -1,0 +1,55 @@
+{% extends 'blog/base.html' %} {% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+<article class="card">
+    <h2>{{ post.title }}</h2>
+    <div class="meta">
+        {{ post.get_game_type_display }} · {{ post.author }} · {{
+        post.created_at|date:"M d, Y" }}
+    </div>
+    <p>{{ post.content|linebreaks }}</p>
+    <div class="actions">
+        <form method="post" action="{% url 'blog:post_like' slug=post.slug %}">
+            {% csrf_token %}
+            <button class="btn secondary" type="submit">
+                {% if liked %}Unlike{% else %}Like{% endif %} ({{
+                post.likes.count }})
+            </button>
+        </form>
+        {% if user == post.author %}
+        <a class="btn" href="{% url 'blog:post_update' slug=post.slug %}"
+            >Edit</a
+        >
+        <a
+            class="btn secondary"
+            href="{% url 'blog:post_delete' slug=post.slug %}"
+            >Delete</a
+        >
+        {% endif %}
+    </div>
+</article>
+
+<section class="card" aria-labelledby="comments-title">
+    <h3 id="comments-title">Comments</h3>
+    {% if comments %} {% for comment in comments %}
+    <div>
+        <strong>{{ comment.author }}</strong>
+        <span class="meta">{{ comment.created_at|date:"M d, Y" }}</span>
+        <p>{{ comment.body|linebreaks }}</p>
+    </div>
+    {% endfor %} {% else %}
+    <p>No comments yet.</p>
+    {% endif %}
+</section>
+
+<section class="card" aria-labelledby="add-comment-title">
+    <h3 id="add-comment-title">Add a comment</h3>
+    {% if user.is_authenticated %}
+    <form method="post">
+        {% csrf_token %} {{ comment_form.as_p }}
+        <button class="btn" type="submit">Post comment</button>
+    </form>
+    {% else %}
+    <p><a href="{% url 'login' %}">Login</a> to comment.</p>
+    {% endif %}
+</section>
+{% endblock %}
