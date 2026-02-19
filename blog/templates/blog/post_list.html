@@ -1,5 +1,11 @@
-{% extends 'blog/base.html' %} {% block title %}Game Blog{% endblock %} {% block
-content %} {% if posts %} {% for post in posts %}
+{% extends 'blog/base.html' %}
+
+{% block title %}Game Blog{% endblock %}
+
+{% block content %}
+
+{% if posts %}
+    {% for post in posts %}
 <article class="card">
     <h2>
         <a href="{% url 'blog:post_detail' slug=post.slug %}"
@@ -21,8 +27,12 @@ content %} {% if posts %} {% for post in posts %}
         >
     </div>
 </article>
-{% endfor %} {% else %}
+{% endfor %}
+
+{% else %}
 <div class="card">
     <p>No posts yet. Create the first one!</p>
 </div>
-{% endif %} {% endblock %}
+{% endif %}
+
+{% endblock %}

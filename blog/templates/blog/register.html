@@ -1,9 +1,13 @@
-{% extends 'blog/base.html' %} {% block title %}Register{% endblock %} {% block
-content %}
+{% extends 'blog/base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
 <div class="card">
     <h2>Create account</h2>
     <form method="post">
-        {% csrf_token %} {{ form.as_p }}
+        {% csrf_token %}
+        {{ form.as_p }}
         <button class="btn" type="submit">Register</button>
     </form>
 </div>

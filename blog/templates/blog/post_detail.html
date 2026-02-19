@@ -1,4 +1,7 @@
-{% extends 'blog/base.html' %} {% block title %}{{ post.title }}{% endblock %}
+{% extends 'blog/base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
 {% block content %}
 <article class="card">
     <h2>{{ post.title }}</h2>
@@ -30,26 +33,29 @@
 
 <section class="card" aria-labelledby="comments-title">
     <h3 id="comments-title">Comments</h3>
-    {% if comments %} {% for comment in comments %}
+    {% if comments %}
+    {% for comment in comments %}
     <div>
         <strong>{{ comment.author }}</strong>
         <span class="meta">{{ comment.created_at|date:"M d, Y" }}</span>
         <p>{{ comment.body|linebreaks }}</p>
     </div>
-    {% endfor %} {% else %}
+    {% endfor %}
+{% else %}
     <p>No comments yet.</p>
-    {% endif %}
+{% endif %}
 </section>
 
 <section class="card" aria-labelledby="add-comment-title">
     <h3 id="add-comment-title">Add a comment</h3>
-    {% if user.is_authenticated %}
+{% if user.is_authenticated %}
     <form method="post">
-        {% csrf_token %} {{ comment_form.as_p }}
+        {% csrf_token %}
+        {{ comment_form.as_p }}
         <button class="btn" type="submit">Post comment</button>
     </form>
-    {% else %}
+{% else %}
     <p><a href="{% url 'login' %}">Login</a> to comment.</p>
-    {% endif %}
+{% endif %}
 </section>
 {% endblock %}
