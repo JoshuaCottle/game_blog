@@ -4,6 +4,13 @@
 
 {% block content %}
 <article class="card">
+    {% if post.image %}
+    <img
+        src="{{ post.image.url }}"
+        alt="{{ post.title }} cover"
+        class="post-image detail-image"
+    />
+    {% endif %}
     <h2>{{ post.title }}</h2>
     <div class="meta">
         {{ post.get_game_type_display }} · {{ post.author }} · {{

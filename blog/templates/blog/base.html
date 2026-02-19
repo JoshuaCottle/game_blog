@@ -52,6 +52,45 @@
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
                 margin-bottom: 1.5rem;
             }
+            .filters {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+                align-items: center;
+                margin-bottom: 1.5rem;
+            }
+            .filters form {
+                flex: 1;
+                min-width: 220px;
+            }
+            .filter-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            .filter-links a {
+                padding: 0.4rem 0.8rem;
+                border-radius: 999px;
+                border: 1px solid #c8c0b5;
+                text-decoration: none;
+                color: var(--ink);
+                font-weight: 600;
+            }
+            .filter-links a.active {
+                background: var(--accent);
+                color: #fff;
+                border-color: var(--accent);
+            }
+            .post-image {
+                width: 100%;
+                max-height: 320px;
+                object-fit: cover;
+                border-radius: 10px;
+                margin-bottom: 0.9rem;
+            }
+            .detail-image {
+                max-height: 420px;
+            }
             .btn {
                 display: inline-block;
                 padding: 0.5rem 0.9rem;

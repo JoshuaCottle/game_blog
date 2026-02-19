@@ -4,9 +4,46 @@
 
 {% block content %}
 
+<section class="filters" aria-label="Filter posts">
+    <div class="filter-links">
+        <a
+            href="{% url 'blog:post_list' %}"
+            class="{% if not current_type %}active{% endif %}"
+            >All</a
+        >
+        {% for key, label in game_types %}
+        <a
+            href="{% url 'blog:post_list' %}?type={{ key }}"
+            class="{% if current_type == key %}active{% endif %}"
+            >{{ label }}</a
+        >
+        {% endfor %}
+    </div>
+    <form method="get">
+        {% if current_type %}
+        <input type="hidden" name="type" value="{{ current_type }}" />
+        {% endif %}
+        <input
+            type="search"
+            name="q"
+            placeholder="Search posts by title"
+            value="{{ search_query }}"
+            aria-label="Search posts by title"
+        />
+    </form>
+</section>
+
 {% if posts %}
     {% for post in posts %}
 <article class="card">
+    {% if post.image %}
+    <img
+        src="{{ post.image.url }}"
+        alt="{{ post.title }} cover"
+        class="post-image"
+        loading="lazy"
+    />
+    {% endif %}
     <h2>
         <a href="{% url 'blog:post_detail' slug=post.slug %}"
             >{{ post.title }}</a

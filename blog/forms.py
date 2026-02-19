@@ -10,7 +10,14 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['title', 'game_type', 'excerpt', 'content', 'published']
+        fields = [
+            'title',
+            'game_type',
+            'excerpt',
+            'image',
+            'content',
+            'published',
+        ]
         widgets = {
             'content': forms.Textarea(attrs={'rows': 8}),
             'excerpt': forms.Textarea(attrs={'rows': 3}),

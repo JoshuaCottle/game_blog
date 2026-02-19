@@ -27,7 +27,22 @@ class PostListView(ListView):
     context_object_name = 'posts'
 
     def get_queryset(self):
-        return Post.objects.filter(published=True)
+        queryset = Post.objects.filter(published=True)
+        game_type = self.request.GET.get('type')
+        search = self.request.GET.get('q')
+        valid_types = {key for key, _ in Post.GAME_TYPES}
+        if game_type in valid_types:
+            queryset = queryset.filter(game_type=game_type)
+        if search:
+            queryset = queryset.filter(title__icontains=search)
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['game_types'] = Post.GAME_TYPES
+        context['current_type'] = self.request.GET.get('type', '')
+        context['search_query'] = self.request.GET.get('q', '')
+        return context
 
 
 class PostDetailView(DetailView):

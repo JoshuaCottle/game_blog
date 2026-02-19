@@ -18,6 +18,9 @@ class Post(models.Model):
         max_length=20, choices=GAME_TYPES, default='video'
     )
     excerpt = models.CharField(max_length=240, blank=True)
+    image = models.ImageField(
+        upload_to='posts/', blank=True, null=True
+    )
     content = models.TextField()
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE
@@ -48,6 +51,11 @@ class Post(models.Model):
                 counter += 1
             self.slug = slug
         super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        """Return the absolute URL for this post detail page."""
+        from django.urls import reverse
+        return reverse('blog:post_detail', kwargs={'slug': self.slug})
 
 
 class Comment(models.Model):
