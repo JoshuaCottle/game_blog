@@ -32,6 +32,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.herokuapp.com']
+"""
+# Use DEVELOPMENT env var for local dev, otherwise always False
+DEBUG = 'DEVELOPMENT' in os.environ
+
+# Heroku and server IP example
+ALLOWED_HOSTS = ['.herokuapp.com', '123.456',]
 CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:8000',
     'http://localhost:8000',
