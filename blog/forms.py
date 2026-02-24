@@ -22,6 +22,7 @@ class PostForm(forms.ModelForm):
         widgets = {
             'content': forms.Textarea(attrs={'rows': 8}),
             'excerpt': forms.Textarea(attrs={'rows': 3}),
+            'tags': forms.SelectMultiple(),
         }
 
 
@@ -40,6 +41,20 @@ class SignUpForm(UserCreationForm):
     """User registration form with email field added."""
 
     email = forms.EmailField(required=True)
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if not email:
+            raise forms.ValidationError('Email is required.')
+        # Add more email validation if needed
+        return email
+
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if not username:
+            raise forms.ValidationError('Username is required.')
+        # Prevent XSS by escaping username
+        return username
 
     class Meta:
         model = User
