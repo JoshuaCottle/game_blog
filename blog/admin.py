@@ -1,8 +1,11 @@
 from django.contrib import admin
 
 from .models import Comment, Like, Post, Tag
+from django.contrib.auth.models import User
 
 # Register models for admin interface
+
+admin.site.register(User)
 
 
 @admin.register(Post)

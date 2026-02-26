@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True  # Set to False in production!
+DEBUG = False  # Set to False in production!
 
 # Allow local access; update for production
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']  # Add your domain for production

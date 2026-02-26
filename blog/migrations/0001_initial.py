@@ -18,15 +18,35 @@ class Migration(migrations.Migration):
             name='Post',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('slug', models.SlugField(blank=True, max_length=220, unique=True)),
-                ('game_type', models.CharField(choices=[('video', 'Video Game'), ('board', 'Board Game'), ('tabletop', 'Tabletop Game')], default='video', max_length=20)),
-                ('excerpt', models.CharField(blank=True, max_length=240)),
+                ('title', models.CharField(
+                    max_length=200
+                )),
+                ('slug', models.SlugField(
+                    blank=True,
+                    max_length=220,
+                    unique=True
+                )),
+                ('game_type', models.CharField(
+                    choices=[
+                        ('video', 'Video Game'),
+                        ('board', 'Board Game'),
+                        ('tabletop', 'Tabletop Game')
+                    ],
+                    default='video',
+                    max_length=20
+                )),
+                ('excerpt', models.CharField(
+                    blank=True,
+                    max_length=240
+                )),
                 ('content', models.TextField()),
                 ('published', models.BooleanField(default=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('author', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to=settings.AUTH_USER_MODEL
+                )),
             ],
             options={
                 'ordering': ['-created_at'],
@@ -36,12 +56,23 @@ class Migration(migrations.Migration):
             name='Comment',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('body', models.TextField()),
+                ('body', models.TextField()),  # No change needed, but context for patch
                 ('active', models.BooleanField(default=True)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='blog.post')),
+                ('created_at', models.DateTimeField(
+                    auto_now_add=True
+                )),
+                ('updated_at', models.DateTimeField(
+                    auto_now=True
+                )),
+                ('author', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to=settings.AUTH_USER_MODEL
+                )),
+                ('post', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='comments',
+                    to='blog.post'
+                )),
             ],
             options={
                 'ordering': ['created_at'],
@@ -52,8 +83,15 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='likes', to='blog.post')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('post', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='likes',
+                    to='blog.post'
+                )),
+                ('user', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to=settings.AUTH_USER_MODEL
+                )),
             ],
             options={
                 'unique_together': {('post', 'user')},
