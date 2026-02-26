@@ -20,19 +20,40 @@
         {% endfor %}
     </div>
     <div class="filter-links" aria-label="Filter by tag">
-        <a
-            href="{% url 'blog:post_list' %}{% if current_type %}?type={{ current_type }}{% endif %}"
-            class="{% if not current_tag %}active{% endif %}"
-            >All tags</a
-        >
+        <a href="{% url 'blog:post_list' %}{% if current_type %}?type={{ current_type }}{% endif %}"
+           class="{% if not current_tag %}active{% endif %}">All tags</a>
         {% for tag in tags %}
-        <a
-            href="{% url 'blog:post_list' %}?tag={{ tag.slug }}{% if current_type %}&type={{ current_type }}{% endif %}"
-            class="{% if current_tag == tag.slug %}active{% endif %}"
-            >{{ tag.name }}</a
-        >
+            <a href="#" class="tag-btn {% if tag.slug in current_tag %}active{% endif %}"
+               data-tag="{{ tag.slug }}">{{ tag.name }}</a>
         {% endfor %}
     </div>
+    <form id="tag-filter-form" method="get" style="display:none;">
+        {% if current_type %}
+            <input type="hidden" name="type" value="{{ current_type }}" />
+        {% endif %}
+        <input type="hidden" name="tag" id="tag-filter-input" value="{{ current_tag }}" />
+    </form>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tagBtns = document.querySelectorAll('.tag-btn');
+        const tagInput = document.getElementById('tag-filter-input');
+        const tagForm = document.getElementById('tag-filter-form');
+        let selectedTags = (tagInput.value ? tagInput.value.split(',') : []);
+        tagBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const tag = btn.getAttribute('data-tag');
+                if (selectedTags.includes(tag)) {
+                    selectedTags = selectedTags.filter(t => t !== tag);
+                } else {
+                    selectedTags.push(tag);
+                }
+                tagInput.value = selectedTags.join(',');
+                tagForm.submit();
+            });
+        });
+    });
+    </script>
     <form method="get">
         {% if current_type %}
         <input type="hidden" name="type" value="{{ current_type }}" />

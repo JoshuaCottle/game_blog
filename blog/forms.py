@@ -6,7 +6,9 @@ from .models import Comment, Post
 
 
 class PostForm(forms.ModelForm):
-    """Form for creating and editing blog posts."""
+    """
+    Form for creating and editing blog posts.
+    """
 
     class Meta:
         model = Post
@@ -27,7 +29,9 @@ class PostForm(forms.ModelForm):
 
 
 class CommentForm(forms.ModelForm):
-    """Form for users to add comments to posts."""
+    """
+    Form for users to add comments to posts.
+    """
 
     class Meta:
         model = Comment

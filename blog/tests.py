@@ -6,6 +6,9 @@ from .models import Post, Tag, Comment
 
 class PostModelTest(TestCase):
     def setUp(self):
+        """
+        Set up test user, tag, and post for Post model tests.
+        """
         self.user = get_user_model().objects.create_user(
             username='testuser', password='pass'
         )
@@ -30,6 +33,9 @@ class PostModelTest(TestCase):
 
 class PostListViewTest(TestCase):
     def setUp(self):
+        """
+        Set up test user and posts for PostListView tests.
+        """
         self.user = get_user_model().objects.create_user(
             username='testuser', password='pass'
         )
@@ -53,6 +59,9 @@ class PostListViewTest(TestCase):
 
 class CommentModelTest(TestCase):
     def setUp(self):
+        """
+        Set up test user and post for Comment model tests.
+        """
         self.user = get_user_model().objects.create_user(
             username='testuser', password='pass'
         )

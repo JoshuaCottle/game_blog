@@ -4,7 +4,9 @@ from django.utils.text import slugify
 
 
 class Tag(models.Model):
-    """A preset tag used to label and filter posts."""
+    """
+    A preset tag used to label and filter posts.
+    """
 
     name = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=60, unique=True, blank=True)
@@ -22,7 +24,9 @@ class Tag(models.Model):
 
 
 class Post(models.Model):
-    """A blog post about a video game, board game, or tabletop game."""
+    """
+    A blog post about a video game, board game, or tabletop game.
+    """
 
     GAME_TYPES = [
         ('video', 'Video Game'),

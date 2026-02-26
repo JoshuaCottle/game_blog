@@ -19,8 +19,13 @@ from .forms import CommentForm, PostForm, SignUpForm
 from .models import Like, Post, Tag
 
 
+# --- Blog Views ---
+
 class PostListView(ListView):
-    """Display a list of all published blog posts."""
+    """
+    Display a list of all published blog posts.
+    Supports filtering and search.
+    """
 
     model = Post
     template_name = 'blog/post_list.html'
@@ -29,13 +34,14 @@ class PostListView(ListView):
     def get_queryset(self):
         queryset = Post.objects.filter(published=True)
         game_type = self.request.GET.get('type')
-        tag_slug = self.request.GET.get('tag')
+        tag_str = self.request.GET.get('tag', '')
+        tag_slugs = [slug for slug in tag_str.split(',') if slug]
         search = self.request.GET.get('q')
         valid_types = {key for key, _ in Post.GAME_TYPES}
         if game_type in valid_types:
             queryset = queryset.filter(game_type=game_type)
-        if tag_slug:
-            queryset = queryset.filter(tags__slug=tag_slug)
+        if tag_slugs:
+            queryset = queryset.filter(tags__slug__in=tag_slugs)
         if search:
             queryset = queryset.filter(title__icontains=search)
         return queryset.distinct()
@@ -51,7 +57,7 @@ class PostListView(ListView):
 
 
 class PostDetailView(DetailView):
-    """Display a single blog post with its comments and like status."""
+    """Display a single blog post, its comments, and like status."""
 
     model = Post
     template_name = 'blog/post_detail.html'
@@ -62,12 +68,10 @@ class PostDetailView(DetailView):
         post = self.object
         context['comments'] = post.comments.filter(active=True)
         context['comment_form'] = CommentForm()
-        if self.request.user.is_authenticated:
-            context['liked'] = Like.objects.filter(
-                post=post, user=self.request.user
-            ).exists()
-        else:
-            context['liked'] = False
+        context['liked'] = (
+            Like.objects.filter(post=post, user=self.request.user).exists()
+            if self.request.user.is_authenticated else False
+        )
         return context
 
     def post(self, request, *args, **kwargs):
@@ -96,10 +100,15 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        response = super().form_valid(form)
+        # Save tags from checkbox selection
+        tags = self.request.POST.getlist('tags')
+        if tags:
+            self.object.tags.set(tags)
         messages.success(
             self.request, 'Your post has been created successfully!'
         )
-        return super().form_valid(form)
+        return response
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -110,10 +119,15 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     template_name = 'blog/post_form.html'
 
     def form_valid(self, form):
+        response = super().form_valid(form)
+        # Save tags from checkbox selection
+        tags = self.request.POST.getlist('tags')
+        if tags:
+            self.object.tags.set(tags)
         messages.success(
             self.request, 'Your post has been updated successfully!'
         )
-        return super().form_valid(form)
+        return response
 
     def test_func(self):
         return self.get_object().author == self.request.user

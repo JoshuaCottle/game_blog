@@ -5,10 +5,32 @@
 {% block content %}
 <div class="card">
     <h2>Create account</h2>
-    <form method="post">
+    <form method="post" id="registerForm" novalidate>
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.username.label_tag }} <input type="text" name="username" id="id_username" required><br>
+        {{ form.email.label_tag }} <input type="email" name="email" id="id_email" required><br>
+        {{ form.password1.label_tag }} <input type="password" name="password1" id="id_password1" required><br>
+        {{ form.password2.label_tag }} <input type="password" name="password2" id="id_password2" required><br>
         <button class="btn" type="submit">Register</button>
+    </form>
+    <script>
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+        let valid = true;
+        ['id_username','id_email','id_password1','id_password2'].forEach(function(id) {
+            let el = document.getElementById(id);
+            if (!el.value.trim()) {
+                valid = false;
+                el.style.border = '2px solid red';
+            } else {
+                el.style.border = '';
+            }
+        });
+        if (!valid) {
+            e.preventDefault();
+            alert('Please fill in all required fields.');
+        }
+    });
+    </script>
     </form>
 </div>
 {% endblock %}

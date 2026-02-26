@@ -2,6 +2,8 @@ from django.contrib import admin
 
 from .models import Comment, Like, Post, Tag
 
+# Register models for admin interface
+
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):

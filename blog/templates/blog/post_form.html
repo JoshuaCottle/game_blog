@@ -5,10 +5,44 @@
 {% block content %}
 <div class="card">
     <h2>Post Editor</h2>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" id="postForm" novalidate>
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.title.label_tag }} <input type="text" name="title" id="id_title" value="{{ form.title.value }}" required><br>
+        {{ form.game_type.label_tag }} {{ form.game_type }}<br>
+        {{ form.excerpt.label_tag }} {{ form.excerpt }}<br>
+        <label>Tags:</label><br>
+        {% for tag in form.tags.field.queryset %}
+            <input type="checkbox" name="tags" value="{{ tag.pk }}"
+                {% if tag.pk in form.data.tags or tag.pk in form.initial.tags %}checked{% endif %}> {{ tag.name }}<br>
+        {% endfor %}
+        {{ form.image.label_tag }} {{ form.image }}<br>
+        {{ form.content.label_tag }} <textarea name="content" id="id_content" rows="8" required>{{ form.content.value }}</textarea><br>
+        {{ form.published.label_tag }} {{ form.published }}<br>
         <button class="btn" type="submit">Save</button>
+    </form>
+    <script>
+    document.getElementById('postForm').addEventListener('submit', function(e) {
+        let valid = true;
+        let title = document.getElementById('id_title');
+        let content = document.getElementById('id_content');
+        if (!title.value.trim()) {
+            valid = false;
+            title.style.border = '2px solid red';
+        } else {
+            title.style.border = '';
+        }
+        if (!content.value.trim()) {
+            valid = false;
+            content.style.border = '2px solid red';
+        } else {
+            content.style.border = '';
+        }
+        if (!valid) {
+            e.preventDefault();
+            alert('Please fill in all required fields.');
+        }
+    });
+    </script>
     </form>
 </div>
 {% endblock %}
