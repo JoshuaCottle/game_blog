@@ -359,6 +359,14 @@ Or download the full PDF: [Lighthouse Report PDF](Images/light%20house.pdf)
 
 ---
 
+### HTML Validation
+
+The site HTML was validated using the Nu Html Checker. No errors or warnings were found:
+
+![HTML Validation Screenshot](Images/html-validation-screenshot.png)
+
+---
+
 ## Project Board
 
 View and track progress on the official GitHub Project Board:
