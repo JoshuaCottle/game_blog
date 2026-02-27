@@ -10,6 +10,12 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ---
 
+## Summary
+
+The Game Ledger is a Django-powered blog platform for video, board, and tabletop games. It provides a user-friendly, accessible, and responsive interface for sharing and discovering game reviews and stories. Users can register, log in, create, edit, and delete posts, comment, and like posts. The site features robust access control, notifications, and is fully validated for HTML, CSS, accessibility, and performance. All development is tracked via a public GitHub Project Board, with thorough documentation and testing included.
+
+---
+
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Features](#features)
@@ -39,14 +45,15 @@ The Game Ledger is a Django-powered blog platform for video, board, and tabletop
 ---
 
 ## Features
-- Post list with filter buttons (video, board, tabletop, tags)
-- Search by post title
-- Image uploads for posts
-- CRUD for posts (author-only edit/delete)
-- Comments and likes on post detail pages
-- Authentication (register, login, logout)
-- Responsive, accessible design
-
+- Post list with filter buttons (video, board, tabletop, tags) ![post filter buttons](Images/image.png)
+- Search by post title ![search bar functionality](Images/image-1.png)
+- Image uploads for posts ![how to add pic](Images/picture%20add.png)
+- CRUD for posts (author-only edit/delete) ![Crud](Images/crud.png)
+- Comments and likes on post detail pages ![alt text](Images/comments-likes.png)
+- Authentication (register, login, logout) ![register](Images/register.png)
+- Responsive, accessible design ![mobile](Images/mobile.png)
+  ![laptop](Images/laptop.png)
+  ![PC](Images/PC.png)
 ---
 
 ## User Stories
@@ -338,6 +345,10 @@ For questions or feedback, contact [Joshua Cottle](https://github.com/JoshuaCott
 
 ## Validation & Accessibility
 
+CSS Validation
+
+[![CSS Validation Result](Images/css-validation.png)](https://jigsaw.w3.org/css-validator/)
+
 ### Lighthouse Audit
 
 A Lighthouse accessibility and performance audit was run on the deployed site. See the full report:
@@ -345,3 +356,11 @@ A Lighthouse accessibility and performance audit was run on the deployed site. S
 [![Lighthouse Report](Images/lighthouse_report.png)](Images/lighthouse_report.png)
 
 Or download the full PDF: [Lighthouse Report PDF](Images/light%20house.pdf)
+
+---
+
+## Project Board
+
+View and track progress on the official GitHub Project Board:
+
+[Game Blog Project Board](https://github.com/users/JoshuaCottle/projects/7/views/1)

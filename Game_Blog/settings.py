@@ -159,7 +159,8 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # --- Cloudinary media storage: Always use Cloudinary for all media uploads ---
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-# Do NOT set MEDIA_ROOT or MEDIA_URL. Cloudinary handles all media URLs and storage.
+# Do NOT set MEDIA_ROOT or MEDIA_URL. Cloudinary handles all media URLs and
+# storage.
 
 
 LOGIN_URL = 'login'

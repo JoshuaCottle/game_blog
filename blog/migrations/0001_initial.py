@@ -17,7 +17,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Post',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID'
+                )),
                 ('title', models.CharField(
                     max_length=200
                 )),
@@ -55,8 +60,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Comment',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('body', models.TextField()),  # No change needed, but context for patch
+                ('id', models.BigAutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID'
+                )),
+                ('body', models.TextField()),
                 ('active', models.BooleanField(default=True)),
                 ('created_at', models.DateTimeField(
                     auto_now_add=True
@@ -81,7 +91,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Like',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID'
+                )),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('post', models.ForeignKey(
                     on_delete=django.db.models.deletion.CASCADE,

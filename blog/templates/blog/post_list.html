@@ -19,7 +19,7 @@
         >
         {% endfor %}
     </div>
-    <div class="filter-links" aria-label="Filter by tag">
+    <div class="filter-links" role="group" aria-label="Filter by tag">
         <a href="{% url 'blog:post_list' %}{% if current_type %}?type={{ current_type }}{% endif %}"
            class="{% if not current_tag %}active{% endif %}">All tags</a>
         {% for tag in tags %}
@@ -29,9 +29,9 @@
     </div>
     <form id="tag-filter-form" method="get" style="display:none;">
         {% if current_type %}
-            <input type="hidden" name="type" value="{{ current_type }}" />
+            <input type="hidden" name="type" value="{{ current_type }}">
         {% endif %}
-        <input type="hidden" name="tag" id="tag-filter-input" value="{{ current_tag }}" />
+        <input type="hidden" name="tag" id="tag-filter-input" value="{{ current_tag }}">
     </form>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -67,7 +67,7 @@
             placeholder="Search posts by title"
             value="{{ search_query }}"
             aria-label="Search posts by title"
-        />
+        >
     </form>
 </section>
 
@@ -80,7 +80,7 @@
         alt="{{ post.title }} cover"
         class="post-image"
         loading="lazy"
-    />
+    >
     {% endif %}
     <h2>
         <a href="{% url 'blog:post_detail' slug=post.slug %}"
