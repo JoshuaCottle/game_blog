@@ -33,7 +33,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = False  # Set to False in production!
 
 # Allow local access; update for production
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']  # Add your domain for production
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'game-blog-c826415580ce.herokuapp.com'
+]
 CSRF_TRUSTED_ORIGINS = ['https://*.herokuapp.com']
 
 # --- Deployment Security Reminders ---
