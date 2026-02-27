@@ -50,6 +50,7 @@ CSRF_TRUSTED_ORIGINS = ['https://*.herokuapp.com']
 
 # Application definition
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -58,6 +59,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -148,12 +151,16 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+# --- Cloudinary media storage: Always use Cloudinary for all media uploads ---
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# Do NOT set MEDIA_ROOT or MEDIA_URL. Cloudinary handles all media URLs and storage.
+
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'blog:post_list'
