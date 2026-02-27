@@ -1,3 +1,40 @@
+## Wireframes
+
+### Home / Post List (Desktop)
+![Home Desktop Wireframe](Images/01-home-desktop.svg)
+
+### Home / Post List (Mobile)
+![Home Mobile Wireframe](Images/02-home-mobile.svg)
+
+### Post Detail (Desktop)
+![Post Detail Desktop Wireframe](Images/03-post-detail-desktop.svg)
+
+### Post Create/Edit (Desktop)
+![Post Create/Edit Desktop Wireframe](Images/04-create-edit-desktop.svg)
+
+### Login/Register (Desktop)
+![Login/Register Desktop Wireframe](Images/05-login-register-desktop.svg)
+
+### Mobile Views (All Pages)
+![Mobile Views Wireframe](Images/06-mobile-views.svg)
+
+# Badges
+![Python Version](https://img.shields.io/badge/python-3.12-blue)
+![Django Version](https://img.shields.io/badge/django-4.2-green)
+![License: MIT](https://img.shields.io/badge/license-MIT-green)
+
+## Screenshots
+<!-- Add screenshots or GIFs of your app below. Example: -->
+<!-- ![Home Page](Images/screenshot-home.png) -->
+<!-- ![Post Detail](Images/screenshot-post.png) -->
+
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Contact
+For questions or feedback, contact [Joshua Cottle](https://github.com/JoshuaCottle).
+
 ## Table of Contents
 - [Features](#features)
 - [User Stories](#user-stories)
@@ -27,58 +64,11 @@ The Game Ledger is a Django-powered blog platform for video, board, and tabletop
 
 ---
 
-## Database Structure (ERD)
+## Database Structure dbdoc/mermaid (ERD)
 
 ![Game_Blog ERD](Images/mermaid-diagram-2026-02-26-225209.png)
 
 Interactive ERD: [View on dbdocs.io](https://dbdocs.io/jcottle33/Game-Blog-DIagram?view=relationships)
-
-```mermaid
-erDiagram
-   USER {
-      id_PK int
-      username varchar
-   }
-   POST {
-      id_PK int
-      author_id_FK int
-      title varchar
-      slug varchar
-      game_type varchar
-      excerpt text
-      content text
-      published boolean
-      created_at datetime
-      updated_at datetime
-   }
-   TAG {
-      id_PK int
-      name varchar
-      slug varchar
-   }
-   COMMENT {
-      id_PK int
-      author_id_FK int
-      post_id_FK int
-      body text
-      active boolean
-      created_at datetime
-      updated_at datetime
-   }
-   LIKE {
-      id_PK int
-      post_id_FK int
-      user_id_FK int
-      created_at datetime
-   }
-
-   USER ||--o{ POST : author_id_FK
-   USER ||--o{ COMMENT : author_id_FK
-   USER ||--o{ LIKE : user_id_FK
-   POST ||--o{ COMMENT : post_id_FK
-   POST ||--o{ LIKE : post_id_FK
-   POST }o--o{ TAG : tags
-```
 
 ---
 

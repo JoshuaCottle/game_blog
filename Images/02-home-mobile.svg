@@ -1,0 +1,480 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 560 1000 720" width="1000" height="720" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <style>
+      .label { font-size: 11px; fill: #444; }
+      .section-title { font-size: 18px; font-weight: 700; fill: #1a1a1a; }
+      .sub-title { font-size: 13px; font-weight: 600; fill: #555; }
+      .placeholder { fill: #d1d5db; }
+      .placeholder-dark { fill: #b0b7c3; }
+      .nav-bg { fill: #1a1a2e; }
+      .surface { fill: #ffffff; }
+      .page-bg { fill: #f0ece4; }
+      .teal { fill: #1a7a6e; }
+      .teal-light { fill: #e6f4f2; }
+      .border { stroke: #d1d5db; stroke-width: 1; fill: none; }
+      .pill { rx: 12; }
+      .annotation { font-size: 9px; fill: #888; font-style: italic; }
+    </style>
+  </defs>
+  <rect x="0" y="560" width="1000" height="720" fill="#f8f9fa"/>
+
+
+  
+
+  <!-- ===================== PAGE BACKGROUND ===================== -->
+  
+
+  <!-- ===== HEADER ===== -->
+  <text x="500" y="44" text-anchor="middle" class="section-title" font-size="22">The Game Ledger — Wireframes</text>
+  <text x="500" y="64" text-anchor="middle" class="sub-title" fill="#888">All pages · Desktop &amp; Mobile</text>
+  <line x1="40" y1="78" x2="960" y2="78" stroke="#e2e8f0" stroke-width="1.5"/>
+
+
+  <!-- =========================================================== -->
+  <!--  1. HOME / POST LIST — DESKTOP                              -->
+  <!-- =========================================================== -->
+
+  <text x="40" y="108" class="section-title">1. Home / Post List</text>
+  <text x="40" y="126" class="sub-title">Desktop</text>
+
+  <!-- Browser shell -->
+  <rect x="40" y="135" width="920" height="420" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.5"/>
+  <rect x="40" y="135" width="920" height="32" rx="10" fill="#f3f4f6" stroke="#d0d5dd" stroke-width="1.5"/>
+  <rect x="40" y="152" width="920" height="15" fill="#f3f4f6"/>
+  <circle cx="62" cy="151" r="5" fill="#ff5f57"/><circle cx="78" cy="151" r="5" fill="#febc2e"/><circle cx="94" cy="151" r="5" fill="#28c840"/>
+  <rect x="115" y="141" width="460" height="18" rx="9" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="125" y="154" font-size="9" fill="#9ca3af">🔒  127.0.0.1:8000</text>
+
+  <!-- Navbar -->
+  <rect x="40" y="167" width="920" height="44" fill="#1a1a2e"/>
+  <text x="62" y="194" font-size="14" font-weight="700" fill="#ffffff">The Game Ledger</text>
+  <text x="280" y="194" font-size="11" fill="#9ca3af">Home</text>
+  <text x="324" y="194" font-size="11" fill="#9ca3af">New Post</text>
+  <text x="380" y="194" font-size="11" fill="#9ca3af">Logout</text>
+
+  <!-- Filter pills row 1 -->
+  <rect x="236" y="222" width="528" height="24" rx="12" fill="#f3f4f6"/>
+  <rect x="236" y="222" width="36" height="24" rx="12" fill="#1a7a6e"/>
+  <text x="254" y="239" text-anchor="middle" font-size="9" fill="#fff" font-weight="600">All</text>
+  <rect x="278" y="222" width="80" height="24" rx="12" fill="none" stroke="#d1d5db" stroke-width="1"/>
+  <text x="318" y="239" text-anchor="middle" font-size="9" fill="#444">Video Game</text>
+  <rect x="364" y="222" width="80" height="24" rx="12" fill="none" stroke="#d1d5db" stroke-width="1"/>
+  <text x="404" y="239" text-anchor="middle" font-size="9" fill="#444">Board Game</text>
+  <rect x="450" y="222" width="88" height="24" rx="12" fill="none" stroke="#d1d5db" stroke-width="1"/>
+  <text x="494" y="239" text-anchor="middle" font-size="9" fill="#444">Tabletop Game</text>
+
+  <!-- Tag pills row 2 -->
+  <rect x="200" y="252" width="600" height="22" rx="11" fill="#f3f4f6"/>
+  <rect x="200" y="252" width="58" height="22" rx="11" fill="#1a7a6e"/>
+  <text x="229" y="267" text-anchor="middle" font-size="8" fill="#fff">All tags</text>
+  <text x="278" y="267" font-size="8" fill="#555">Action</text>
+  <text x="315" y="267" font-size="8" fill="#555">Adventure</text>
+  <text x="364" y="267" font-size="8" fill="#555">Casual</text>
+  <text x="403" y="267" font-size="8" fill="#555">Fantasy</text>
+  <text x="443" y="267" font-size="8" fill="#555">Horror</text>
+  <text x="481" y="267" font-size="8" fill="#555">Indie</text>
+  <text x="509" y="267" font-size="8" fill="#555">Party</text>
+  <text x="537" y="267" font-size="8" fill="#555">Puzzle</text>
+  <text x="567" y="267" font-size="8" fill="#555">RPG</text>
+  <text x="591" y="267" font-size="8" fill="#555">Strategy</text>
+  <text x="638" y="267" font-size="8" fill="#555">Simulation</text>
+  <text x="690" y="267" font-size="8" fill="#555">Sports</text>
+
+  <!-- Search bar -->
+  <rect x="140" y="281" width="720" height="32" rx="6" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="160" y="302" font-size="10" fill="#b0b7c3">Search posts by title...</text>
+
+  <!-- Card 1 -->
+  <rect x="60" y="325" width="256" height="200" rx="8" fill="#fff" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="60" y="325" width="256" height="100" rx="8" fill="#d1d5db"/>
+  <rect x="60" y="393" width="256" height="32" fill="#d1d5db"/>
+  <text x="168" y="375" text-anchor="middle" font-size="9" fill="#9ca3af">[Post Image]</text>
+  <rect x="68" y="330" width="52" height="14" rx="7" fill="#1a7a6e"/>
+  <text x="94" y="341" text-anchor="middle" font-size="7" fill="#fff">Video Game</text>
+  <text x="72" y="441" font-size="9" font-weight="600" fill="#1f2937">Post Title Here</text>
+  <text x="72" y="455" font-size="8" fill="#9ca3af">Short excerpt of the post content...</text>
+  <line x1="60" y1="466" x2="316" y2="466" stroke="#f3f4f6" stroke-width="1"/>
+  <circle cx="76" cy="478" r="7" fill="#d1d5db"/>
+  <text x="88" y="476" font-size="7" fill="#555">Author Name</text>
+  <text x="88" y="486" font-size="7" fill="#9ca3af">Feb 24, 2026</text>
+  <text x="248" y="481" font-size="8" fill="#9ca3af">♥ 12</text>
+  <text x="278" y="481" font-size="8" fill="#9ca3af">💬 4</text>
+
+  <!-- Card 2 -->
+  <rect x="332" y="325" width="256" height="200" rx="8" fill="#fff" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="332" y="325" width="256" height="100" rx="8" fill="#d1d5db"/>
+  <rect x="332" y="393" width="256" height="32" fill="#d1d5db"/>
+  <text x="460" y="375" text-anchor="middle" font-size="9" fill="#9ca3af">[Post Image]</text>
+  <rect x="340" y="330" width="54" height="14" rx="7" fill="#2563eb"/>
+  <text x="367" y="341" text-anchor="middle" font-size="7" fill="#fff">Board Game</text>
+  <text x="344" y="441" font-size="9" font-weight="600" fill="#1f2937">Post Title Here</text>
+  <text x="344" y="455" font-size="8" fill="#9ca3af">Short excerpt of the post content...</text>
+  <line x1="332" y1="466" x2="588" y2="466" stroke="#f3f4f6" stroke-width="1"/>
+  <circle cx="348" cy="478" r="7" fill="#d1d5db"/>
+  <text x="360" y="476" font-size="7" fill="#555">Author Name</text>
+  <text x="360" y="486" font-size="7" fill="#9ca3af">Feb 22, 2026</text>
+  <text x="520" y="481" font-size="8" fill="#9ca3af">♥ 8</text>
+  <text x="549" y="481" font-size="8" fill="#9ca3af">💬 2</text>
+
+  <!-- Card 3 -->
+  <rect x="604" y="325" width="256" height="200" rx="8" fill="#fff" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="604" y="325" width="256" height="100" rx="8" fill="#d1d5db"/>
+  <rect x="604" y="393" width="256" height="32" fill="#d1d5db"/>
+  <text x="732" y="375" text-anchor="middle" font-size="9" fill="#9ca3af">[Post Image]</text>
+  <rect x="612" y="330" width="62" height="14" rx="7" fill="#7c3aed"/>
+  <text x="643" y="341" text-anchor="middle" font-size="7" fill="#fff">Tabletop Game</text>
+  <text x="616" y="441" font-size="9" font-weight="600" fill="#1f2937">Post Title Here</text>
+  <text x="616" y="455" font-size="8" fill="#9ca3af">Short excerpt of the post content...</text>
+  <line x1="604" y1="466" x2="860" y2="466" stroke="#f3f4f6" stroke-width="1"/>
+  <circle cx="620" cy="478" r="7" fill="#d1d5db"/>
+  <text x="632" y="476" font-size="7" fill="#555">Author Name</text>
+  <text x="632" y="486" font-size="7" fill="#9ca3af">Feb 20, 2026</text>
+  <text x="792" y="481" font-size="8" fill="#9ca3af">♥ 31</text>
+  <text x="822" y="481" font-size="8" fill="#9ca3af">💬 9</text>
+
+  <!-- Pagination -->
+  <rect x="40" y="535" width="920" height="20" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="500" y="549" text-anchor="middle" font-size="9" fill="#9ca3af">‹  1  2  3  ···  8  ›</text>
+
+
+  <!-- =========================================================== -->
+  <!--  1. HOME / POST LIST — MOBILE                               -->
+  <!-- =========================================================== -->
+
+  <text x="40" y="598" class="section-title">1. Home / Post List</text>
+  <text x="40" y="616" class="sub-title">Mobile</text>
+
+  <!-- Phone shell -->
+  <rect x="310" y="625" width="380" height="620" rx="14" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.5"/>
+
+  <!-- Mobile nav -->
+  <rect x="310" y="625" width="380" height="44" rx="14" fill="#1a1a2e"/>
+  <rect x="310" y="650" width="380" height="19" fill="#1a1a2e"/>
+  <text x="336" y="652" font-size="12" font-weight="700" fill="#ffffff">The Game Ledger</text>
+  <text x="660" y="652" text-anchor="end" font-size="16" fill="#9ca3af">≡</text>
+
+  <!-- Game type pills -->
+  <text x="326" y="686" font-size="8" fill="#555">All</text>
+  <text x="354" y="686" font-size="8" fill="#555">Video Game</text>
+  <text x="424" y="686" font-size="8" fill="#555">Board Game</text>
+  <text x="495" y="686" font-size="8" fill="#555">Tabletop</text>
+  <rect x="318" y="675" width="22" height="16" rx="8" fill="#1a7a6e"/>
+  <text x="329" y="687" text-anchor="middle" font-size="7" fill="#fff">All</text>
+
+  <!-- Tag pills row -->
+  <text x="320" y="708" font-size="7" fill="#555">All tags  Action  Adventure  Casual  Fantasy  Horror ···</text>
+
+  <!-- Search -->
+  <rect x="318" y="715" width="364" height="28" rx="6" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="330" y="733" font-size="9" fill="#b0b7c3">Search posts by title...</text>
+
+  <!-- Mobile card 1 -->
+  <rect x="318" y="752" width="364" height="148" rx="8" fill="#fff" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="318" y="752" width="364" height="72" rx="8" fill="#d1d5db"/>
+  <rect x="318" y="800" width="364" height="24" fill="#d1d5db"/>
+  <text x="500" y="792" text-anchor="middle" font-size="8" fill="#9ca3af">[Post Image]</text>
+  <rect x="326" y="757" width="52" height="13" rx="6" fill="#1a7a6e"/>
+  <text x="352" y="768" text-anchor="middle" font-size="7" fill="#fff">Video Game</text>
+  <text x="326" y="840" font-size="9" font-weight="600" fill="#1f2937">Post Title Here</text>
+  <text x="326" y="853" font-size="8" fill="#9ca3af">Short excerpt of post content...</text>
+  <line x1="318" y1="862" x2="682" y2="862" stroke="#f3f4f6" stroke-width="1"/>
+  <circle cx="332" cy="874" r="6" fill="#d1d5db"/>
+  <text x="342" y="872" font-size="7" fill="#555">Author</text>
+  <text x="342" y="881" font-size="7" fill="#9ca3af">Feb 24</text>
+  <text x="628" y="877" font-size="8" fill="#9ca3af">♥ 12  💬 4</text>
+
+  <!-- Mobile card 2 -->
+  <rect x="318" y="910" width="364" height="148" rx="8" fill="#fff" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="318" y="910" width="364" height="72" rx="8" fill="#d1d5db"/>
+  <rect x="318" y="958" width="364" height="24" fill="#d1d5db"/>
+  <text x="500" y="950" text-anchor="middle" font-size="8" fill="#9ca3af">[Post Image]</text>
+  <rect x="326" y="915" width="54" height="13" rx="6" fill="#2563eb"/>
+  <text x="353" y="926" text-anchor="middle" font-size="7" fill="#fff">Board Game</text>
+  <text x="326" y="998" font-size="9" font-weight="600" fill="#1f2937">Post Title Here</text>
+  <text x="326" y="1011" font-size="8" fill="#9ca3af">Short excerpt of post content...</text>
+  <line x1="318" y1="1020" x2="682" y2="1020" stroke="#f3f4f6" stroke-width="1"/>
+  <circle cx="332" cy="1032" r="6" fill="#d1d5db"/>
+  <text x="342" y="1030" font-size="7" fill="#555">Author</text>
+  <text x="342" y="1039" font-size="7" fill="#9ca3af">Feb 22</text>
+  <text x="628" y="1035" font-size="8" fill="#9ca3af">♥ 8  💬 2</text>
+
+  <!-- Pagination mobile -->
+  <rect x="310" y="1213" width="380" height="32" rx="14" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="310" y="1213" width="380" height="18" fill="#f9fafb"/>
+  <text x="500" y="1234" text-anchor="middle" font-size="9" fill="#9ca3af">‹  1  2  3  ›</text>
+
+
+  <!-- =========================================================== -->
+  <!--  2. POST DETAIL — DESKTOP                                   -->
+  <!-- =========================================================== -->
+
+  <text x="40" y="1296" class="section-title">2. Post Detail</text>
+  <text x="40" y="1314" class="sub-title">Desktop</text>
+
+  <rect x="40" y="1323" width="920" height="520" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.5"/>
+  <rect x="40" y="1323" width="920" height="32" rx="10" fill="#f3f4f6" stroke="#d0d5dd" stroke-width="1.5"/>
+  <rect x="40" y="1340" width="920" height="15" fill="#f3f4f6"/>
+  <circle cx="62" cy="1339" r="5" fill="#ff5f57"/><circle cx="78" cy="1339" r="5" fill="#febc2e"/><circle cx="94" cy="1339" r="5" fill="#28c840"/>
+
+  <rect x="40" y="1355" width="920" height="44" fill="#1a1a2e"/>
+  <text x="62" y="1382" font-size="14" font-weight="700" fill="#ffffff">The Game Ledger</text>
+  <text x="280" y="1382" font-size="11" fill="#9ca3af">Home</text>
+  <text x="320" y="1382" font-size="11" fill="#9ca3af">New Post</text>
+  <text x="375" y="1382" font-size="11" fill="#9ca3af">Logout</text>
+
+  <!-- Post detail content -->
+  <rect x="100" y="1415" width="800" height="400" rx="8" fill="#fff" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- Title + meta -->
+  <text x="120" y="1445" font-size="15" font-weight="700" fill="#1f2937">Post Title — Full Game Review or Article Heading</text>
+  <text x="120" y="1462" font-size="9" fill="#9ca3af">by Author Name  ·  Feb 24, 2026</text>
+  <rect x="500" y="1450" width="44" height="18" rx="4" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="522" y="1463" text-anchor="middle" font-size="8" fill="#555">[Edit]</text>
+  <rect x="550" y="1450" width="52" height="18" rx="4" fill="#fee2e2" stroke="#fca5a5" stroke-width="1"/>
+  <text x="576" y="1463" text-anchor="middle" font-size="8" fill="#dc2626">[Delete]</text>
+  <text x="610" y="1461" font-size="8" fill="#9ca3af">(if author)</text>
+
+  <!-- Hero image -->
+  <rect x="120" y="1475" width="760" height="140" rx="6" fill="#d1d5db"/>
+  <text x="500" y="1549" text-anchor="middle" font-size="11" fill="#9ca3af">[Post Hero Image]</text>
+
+  <!-- Content body -->
+  <rect x="120" y="1626" width="760" height="8" rx="4" fill="#e5e7eb"/>
+  <rect x="120" y="1640" width="680" height="8" rx="4" fill="#e5e7eb"/>
+  <rect x="120" y="1654" width="720" height="8" rx="4" fill="#e5e7eb"/>
+  <rect x="120" y="1668" width="600" height="8" rx="4" fill="#e5e7eb"/>
+
+  <!-- Tags -->
+  <rect x="120" y="1684" width="48" height="16" rx="8" fill="#e6f4f2" stroke="#1a7a6e" stroke-width="1"/>
+  <text x="144" y="1696" text-anchor="middle" font-size="7" fill="#1a7a6e">Strategy</text>
+  <rect x="175" y="1684" width="36" height="16" rx="8" fill="#e6f4f2" stroke="#1a7a6e" stroke-width="1"/>
+  <text x="193" y="1696" text-anchor="middle" font-size="7" fill="#1a7a6e">RPG</text>
+
+  <!-- Like / comment bar -->
+  <line x1="100" y1="1710" x2="900" y2="1710" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="120" y="1718" width="60" height="22" rx="6" fill="#1a7a6e"/>
+  <text x="150" y="1733" text-anchor="middle" font-size="9" fill="#fff">♥ Like</text>
+  <text x="200" y="1733" font-size="9" fill="#9ca3af">24 likes  ·  6 comments</text>
+
+  <!-- Comments -->
+  <text x="120" y="1758" font-size="10" font-weight="600" fill="#374151">Comments</text>
+  <line x1="120" y1="1762" x2="880" y2="1762" stroke="#f3f4f6" stroke-width="1"/>
+  <circle cx="134" cy="1778" r="8" fill="#d1d5db"/>
+  <text x="148" y="1776" font-size="8" font-weight="600" fill="#374151">username</text>
+  <text x="222" y="1776" font-size="7" fill="#9ca3af">Feb 25</text>
+  <text x="148" y="1788" font-size="8" fill="#555">Comment text goes here...</text>
+  <rect x="820" y="1768" width="48" height="16" rx="4" fill="#fee2e2" stroke="#fca5a5" stroke-width="1"/>
+  <text x="844" y="1780" text-anchor="middle" font-size="7" fill="#dc2626">[Delete]</text>
+
+  <!-- Add comment form -->
+  <rect x="120" y="1800" width="760" height="28" rx="6" fill="#f9fafb" stroke="#d1d5db" stroke-width="1"/>
+  <text x="135" y="1818" font-size="9" fill="#b0b7c3">Add a comment...</text>
+  <rect x="836" y="1804" width="36" height="20" rx="4" fill="#1a7a6e"/>
+  <text x="854" y="1818" text-anchor="middle" font-size="8" fill="#fff">Post</text>
+
+
+  <!-- =========================================================== -->
+  <!--  3. POST CREATE/EDIT — DESKTOP                              -->
+  <!-- =========================================================== -->
+
+  <text x="40" y="1888" class="section-title">3. Post Create / Edit</text>
+  <text x="40" y="1906" class="sub-title">Desktop</text>
+
+  <rect x="40" y="1915" width="920" height="440" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.5"/>
+  <rect x="40" y="1915" width="920" height="32" rx="10" fill="#f3f4f6" stroke="#d0d5dd" stroke-width="1.5"/>
+  <rect x="40" y="1932" width="920" height="15" fill="#f3f4f6"/>
+  <circle cx="62" cy="1931" r="5" fill="#ff5f57"/><circle cx="78" cy="1931" r="5" fill="#febc2e"/><circle cx="94" cy="1931" r="5" fill="#28c840"/>
+
+  <rect x="40" y="1947" width="920" height="44" fill="#1a1a2e"/>
+  <text x="62" y="1974" font-size="14" font-weight="700" fill="#ffffff">The Game Ledger</text>
+  <text x="280" y="1974" font-size="11" fill="#9ca3af">Home</text>
+  <text x="320" y="1974" font-size="11" fill="#9ca3af">New Post</text>
+  <text x="375" y="1974" font-size="11" fill="#9ca3af">Logout</text>
+
+  <text x="500" y="2016" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">Create New Post</text>
+
+  <!-- Form fields -->
+  <text x="160" y="2042" font-size="9" fill="#374151" font-weight="600">Title</text>
+  <rect x="160" y="2048" width="680" height="28" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="175" y="2066" font-size="9" fill="#b0b7c3">Enter post title...</text>
+
+  <text x="160" y="2090" font-size="9" fill="#374151" font-weight="600">Game Type</text>
+  <rect x="160" y="2096" width="320" height="28" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="175" y="2114" font-size="9" fill="#b0b7c3">Select game type ▾</text>
+
+  <text x="500" y="2090" font-size="9" fill="#374151" font-weight="600">Tags</text>
+  <rect x="500" y="2096" width="340" height="28" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="515" y="2114" font-size="9" fill="#b0b7c3">Select tags (multi) ▾</text>
+
+  <text x="160" y="2138" font-size="9" fill="#374151" font-weight="600">Image Upload</text>
+  <rect x="160" y="2144" width="680" height="44" rx="5" fill="#f9fafb" stroke="#d1d5db" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="500" y="2170" text-anchor="middle" font-size="9" fill="#9ca3af">📎  Click to upload or drag &amp; drop image</text>
+
+  <text x="160" y="2204" font-size="9" fill="#374151" font-weight="600">Excerpt</text>
+  <rect x="160" y="2210" width="680" height="40" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="175" y="2228" font-size="9" fill="#b0b7c3">Short description of the post...</text>
+
+  <text x="160" y="2264" font-size="9" fill="#374151" font-weight="600">Content</text>
+  <rect x="160" y="2270" width="680" height="60" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="175" y="2292" font-size="9" fill="#b0b7c3">Write your post content here...</text>
+
+  <!-- Submit / Cancel -->
+  <rect x="160" y="2344" width="80" height="28" rx="6" fill="#1a7a6e"/>
+  <text x="200" y="2362" text-anchor="middle" font-size="9" fill="#fff" font-weight="600">Submit</text>
+  <rect x="252" y="2344" width="70" height="28" rx="6" fill="none" stroke="#d1d5db" stroke-width="1"/>
+  <text x="287" y="2362" text-anchor="middle" font-size="9" fill="#555">Cancel</text>
+
+
+  <!-- =========================================================== -->
+  <!--  4. LOGIN / REGISTER — DESKTOP                              -->
+  <!-- =========================================================== -->
+
+  <text x="40" y="2408" class="section-title">4. Login / Register</text>
+  <text x="40" y="2426" class="sub-title">Desktop</text>
+
+  <rect x="40" y="2435" width="920" height="420" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.5"/>
+  <rect x="40" y="2435" width="920" height="32" rx="10" fill="#f3f4f6" stroke="#d0d5dd" stroke-width="1.5"/>
+  <rect x="40" y="2452" width="920" height="15" fill="#f3f4f6"/>
+  <circle cx="62" cy="2451" r="5" fill="#ff5f57"/><circle cx="78" cy="2451" r="5" fill="#febc2e"/><circle cx="94" cy="2451" r="5" fill="#28c840"/>
+
+  <rect x="40" y="2467" width="920" height="44" fill="#1a1a2e"/>
+  <text x="62" y="2494" font-size="14" font-weight="700" fill="#ffffff">The Game Ledger</text>
+  <text x="280" y="2494" font-size="11" fill="#9ca3af">Home</text>
+  <text x="320" y="2494" font-size="11" fill="#9ca3af">Register</text>
+
+  <!-- Login card -->
+  <rect x="100" y="2527" width="340" height="300" rx="10" fill="#fff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="270" y="2557" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">Login</text>
+
+  <text x="122" y="2580" font-size="9" fill="#374151" font-weight="600">Username</text>
+  <rect x="122" y="2586" width="296" height="26" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="136" y="2602" font-size="9" fill="#b0b7c3">Enter username...</text>
+
+  <text x="122" y="2625" font-size="9" fill="#374151" font-weight="600">Password</text>
+  <rect x="122" y="2631" width="296" height="26" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="136" y="2647" font-size="9" fill="#b0b7c3">••••••••</text>
+
+  <rect x="122" y="2668" width="296" height="28" rx="6" fill="#1a7a6e"/>
+  <text x="270" y="2686" text-anchor="middle" font-size="10" fill="#fff" font-weight="600">Login</text>
+
+  <text x="270" y="2712" text-anchor="middle" font-size="9" fill="#1a7a6e">Don't have an account? Register →</text>
+
+  <!-- Register card -->
+  <rect x="480" y="2527" width="380" height="300" rx="10" fill="#fff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="670" y="2557" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">Register</text>
+
+  <text x="502" y="2580" font-size="9" fill="#374151" font-weight="600">Username</text>
+  <rect x="502" y="2586" width="336" height="26" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="516" y="2602" font-size="9" fill="#b0b7c3">Choose a username...</text>
+
+  <text x="502" y="2624" font-size="9" fill="#374151" font-weight="600">Email</text>
+  <rect x="502" y="2630" width="336" height="26" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="516" y="2646" font-size="9" fill="#b0b7c3">your@email.com</text>
+
+  <text x="502" y="2668" font-size="9" fill="#374151" font-weight="600">Password</text>
+  <rect x="502" y="2674" width="336" height="26" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="516" y="2690" font-size="9" fill="#b0b7c3">••••••••</text>
+
+  <text x="502" y="2712" font-size="9" fill="#374151" font-weight="600">Confirm Password</text>
+  <rect x="502" y="2718" width="336" height="26" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="516" y="2734" font-size="9" fill="#b0b7c3">••••••••</text>
+
+  <rect x="502" y="2752" width="336" height="28" rx="6" fill="#1a7a6e"/>
+  <text x="670" y="2770" text-anchor="middle" font-size="10" fill="#fff" font-weight="600">Register</text>
+
+  <text x="670" y="2792" text-anchor="middle" font-size="9" fill="#1a7a6e">Already have an account? Login →</text>
+
+
+  <!-- =========================================================== -->
+  <!--  MOBILE — Post Detail + Create/Edit + Login (compact)       -->
+  <!-- =========================================================== -->
+
+  <text x="40" y="2910" class="section-title">Mobile Views</text>
+  <text x="40" y="2928" class="sub-title">Post Detail  ·  Create/Edit  ·  Login</text>
+
+  <!-- Post Detail Mobile -->
+  <rect x="40" y="2940" width="280" height="400" rx="14" fill="#fff" stroke="#d0d5dd" stroke-width="1.5"/>
+  <rect x="40" y="2940" width="280" height="44" rx="14" fill="#1a1a2e"/>
+  <rect x="40" y="2965" width="280" height="19" fill="#1a1a2e"/>
+  <text x="62" y="2967" font-size="11" font-weight="700" fill="#fff">The Game Ledger</text>
+  <text x="294" y="2967" text-anchor="end" font-size="14" fill="#9ca3af">≡</text>
+  <rect x="50" y="2995" width="260" height="90" rx="6" fill="#d1d5db"/>
+  <text x="180" y="3044" text-anchor="middle" font-size="8" fill="#9ca3af">[Image]</text>
+  <text x="52" y="3104" font-size="10" font-weight="700" fill="#1f2937">Post Title Here</text>
+  <text x="52" y="3117" font-size="8" fill="#9ca3af">Author · Feb 24</text>
+  <rect x="52" y="3124" width="260" height="8" rx="4" fill="#e5e7eb"/>
+  <rect x="52" y="3137" width="230" height="8" rx="4" fill="#e5e7eb"/>
+  <rect x="52" y="3150" width="248" height="8" rx="4" fill="#e5e7eb"/>
+  <rect x="52" y="3166" width="48" height="14" rx="7" fill="#e6f4f2" stroke="#1a7a6e" stroke-width="1"/>
+  <text x="76" y="3177" text-anchor="middle" font-size="7" fill="#1a7a6e">Strategy</text>
+  <line x1="40" y1="3188" x2="320" y2="3188" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="52" y="3196" width="52" height="20" rx="6" fill="#1a7a6e"/>
+  <text x="78" y="3210" text-anchor="middle" font-size="8" fill="#fff">♥ Like</text>
+  <text x="115" y="3210" font-size="8" fill="#9ca3af">24 likes</text>
+  <text x="52" y="3236" font-size="9" font-weight="600" fill="#374151">Comments</text>
+  <circle cx="62" cy="3254" r="7" fill="#d1d5db"/>
+  <text x="74" y="3252" font-size="7" font-weight="600" fill="#555">username</text>
+  <text x="74" y="3262" font-size="7" fill="#9ca3af">Comment text here...</text>
+  <rect x="50" y="3298" width="260" height="24" rx="6" fill="#f9fafb" stroke="#d1d5db" stroke-width="1"/>
+  <text x="62" y="3314" font-size="8" fill="#b0b7c3">Add a comment...</text>
+
+  <!-- Create/Edit Mobile -->
+  <rect x="360" y="2940" width="280" height="400" rx="14" fill="#fff" stroke="#d0d5dd" stroke-width="1.5"/>
+  <rect x="360" y="2940" width="280" height="44" rx="14" fill="#1a1a2e"/>
+  <rect x="360" y="2965" width="280" height="19" fill="#1a1a2e"/>
+  <text x="382" y="2967" font-size="11" font-weight="700" fill="#fff">The Game Ledger</text>
+  <text x="614" y="2967" text-anchor="end" font-size="14" fill="#9ca3af">≡</text>
+  <text x="500" y="2998" text-anchor="middle" font-size="11" font-weight="700" fill="#1f2937">Create Post</text>
+  <text x="372" y="3018" font-size="8" fill="#374151" font-weight="600">Title</text>
+  <rect x="372" y="3024" width="256" height="24" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="372" y="3060" font-size="8" fill="#374151" font-weight="600">Game Type</text>
+  <rect x="372" y="3066" width="256" height="24" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="383" y="3082" font-size="8" fill="#b0b7c3">Select ▾</text>
+  <text x="372" y="3102" font-size="8" fill="#374151" font-weight="600">Tags</text>
+  <rect x="372" y="3108" width="256" height="24" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="383" y="3124" font-size="8" fill="#b0b7c3">Select tags ▾</text>
+  <text x="372" y="3144" font-size="8" fill="#374151" font-weight="600">Image Upload</text>
+  <rect x="372" y="3150" width="256" height="32" rx="5" fill="#f9fafb" stroke="#d1d5db" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="500" y="3170" text-anchor="middle" font-size="8" fill="#9ca3af">📎 Upload image</text>
+  <text x="372" y="3196" font-size="8" fill="#374151" font-weight="600">Excerpt</text>
+  <rect x="372" y="3202" width="256" height="36" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="372" y="3252" font-size="8" fill="#374151" font-weight="600">Content</text>
+  <rect x="372" y="3258" width="256" height="36" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <rect x="372" y="3304" width="116" height="24" rx="6" fill="#1a7a6e"/>
+  <text x="430" y="3320" text-anchor="middle" font-size="8" fill="#fff" font-weight="600">Submit</text>
+  <rect x="498" y="3304" width="80" height="24" rx="6" fill="none" stroke="#d1d5db" stroke-width="1"/>
+  <text x="538" y="3320" text-anchor="middle" font-size="8" fill="#555">Cancel</text>
+
+  <!-- Login Mobile -->
+  <rect x="680" y="2940" width="280" height="400" rx="14" fill="#fff" stroke="#d0d5dd" stroke-width="1.5"/>
+  <rect x="680" y="2940" width="280" height="44" rx="14" fill="#1a1a2e"/>
+  <rect x="680" y="2965" width="280" height="19" fill="#1a1a2e"/>
+  <text x="702" y="2967" font-size="11" font-weight="700" fill="#fff">The Game Ledger</text>
+  <text x="934" y="2967" text-anchor="end" font-size="14" fill="#9ca3af">≡</text>
+  <text x="820" y="3002" text-anchor="middle" font-size="11" font-weight="700" fill="#1f2937">Login</text>
+  <text x="692" y="3022" font-size="8" fill="#374151" font-weight="600">Username</text>
+  <rect x="692" y="3028" width="256" height="26" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="692" y="3068" font-size="8" fill="#374151" font-weight="600">Password</text>
+  <rect x="692" y="3074" width="256" height="26" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="704" y="3090" font-size="9" fill="#b0b7c3">••••••••</text>
+  <rect x="692" y="3112" width="256" height="28" rx="6" fill="#1a7a6e"/>
+  <text x="820" y="3130" text-anchor="middle" font-size="10" fill="#fff" font-weight="600">Login</text>
+  <text x="820" y="3158" text-anchor="middle" font-size="9" fill="#1a7a6e">Don't have an account? Register</text>
+
+  <text x="820" y="3184" text-anchor="middle" font-size="10" font-weight="700" fill="#1f2937">Register</text>
+  <text x="692" y="3204" font-size="8" fill="#374151" font-weight="600">Username</text>
+  <rect x="692" y="3210" width="256" height="22" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="692" y="3244" font-size="8" fill="#374151" font-weight="600">Email</text>
+  <rect x="692" y="3250" width="256" height="22" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="692" y="3284" font-size="8" fill="#374151" font-weight="600">Password</text>
+  <rect x="692" y="3290" width="256" height="22" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="692" y="3324" font-size="8" fill="#374151" font-weight="600">Confirm Password</text>
+  <rect x="692" y="3330" width="256" height="22" rx="5" fill="#fff" stroke="#d1d5db" stroke-width="1"/>
+  <rect x="692" y="3360" width="256" height="26" rx="6" fill="#1a7a6e"/>
+  <text x="820" y="3377" text-anchor="middle" font-size="9" fill="#fff" font-weight="600">Register</text>
+
+  <!-- Footer -->
+  <line x1="40" y1="3408" x2="960" y2="3408" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="500" y="3390" text-anchor="middle" font-size="9" fill="#b0b7c3">The Game Ledger — Wireframes · All pages shown at desktop and mobile breakpoints</text>
+
+</svg>
