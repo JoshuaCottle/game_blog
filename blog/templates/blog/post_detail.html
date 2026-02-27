@@ -24,8 +24,7 @@
     </div>
     {% endif %}
     <div class="meta">
-        {{ post.get_game_type_display }} · {{ post.author }} · {{
-        post.created_at|date:"M d, Y" }}
+        {{ post.get_game_type_display }} · {{ post.author }} · {{ post.created_at|date:"M d, Y" }}
     </div>
     <p>{{ post.content|linebreaks }}</p>
     <div class="actions">
