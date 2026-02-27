@@ -329,7 +329,15 @@ Client-side JS validation and instant notification logic are tested using Jest.
 
 ## Credits
 - Project Author: Joshua Cottle
-- Icons/Images: Author-provided or user-uploaded content
+- Icons/Images: Author-provided, user-uploaded content, and the following game cover images used for demonstration:
+  - Halo: The Master Chief Collection (© Microsoft/Xbox Game Studios)
+  - Hades (© Supergiant Games)
+  - Blades in the Dark (© John Harper/One Seven Design)
+  - Baldur’s Gate 3 (© Larian Studios)
+  - Hollow Knight (© Team Cherry)
+  - Wingspan (© Stonemaier Games)
+  - D&D Dice/Book illustration (source: unknown)
+- All game images are used for educational and demonstration purposes only.
 
 ---
 
