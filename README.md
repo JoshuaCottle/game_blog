@@ -1,57 +1,31 @@
-## Wireframes
-
-### Home / Post List (Desktop)
-![Home Desktop Wireframe](Images/01-home-desktop.svg)
-
-### Home / Post List (Mobile)
-![Home Mobile Wireframe](Images/02-home-mobile.svg)
-
-### Post Detail (Desktop)
-![Post Detail Desktop Wireframe](Images/03-post-detail-desktop.svg)
-
-### Post Create/Edit (Desktop)
-![Post Create/Edit Desktop Wireframe](Images/04-create-edit-desktop.svg)
-
-### Login/Register (Desktop)
-![Login/Register Desktop Wireframe](Images/05-login-register-desktop.svg)
-
-### Mobile Views (All Pages)
-![Mobile Views Wireframe](Images/06-mobile-views.svg)
-
-# Badges
-![Python Version](https://img.shields.io/badge/python-3.12-blue)
-![Django Version](https://img.shields.io/badge/django-4.2-green)
-![License: MIT](https://img.shields.io/badge/license-MIT-green)
-
-## Screenshots
-<!-- Add screenshots or GIFs of your app below. Example: -->
-<!-- ![Home Page](Images/screenshot-home.png) -->
-<!-- ![Post Detail](Images/screenshot-post.png) -->
-
-
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Contact
-For questions or feedback, contact [Joshua Cottle](https://github.com/JoshuaCottle).
+
+# The Game Ledger — Game Blog
+
+**Live site:** _TBD_  
+**Repository:** https://github.com/JoshuaCottle/game_blog
+
+---
 
 ## Table of Contents
+- [Project Overview](#project-overview)
 - [Features](#features)
 - [User Stories](#user-stories)
 - [Design & Accessibility](#design--accessibility)
+- [Wireframes](#wireframes)
+- [Database Structure (ERD)](#database-structure-erd)
 - [Technologies Used](#technologies-used)
 - [Testing](#testing)
 - [JavaScript Testing](#javascript-testing)
 - [Deployment](#deployment)
 - [Local Setup](#local-setup)
 - [AI Use](#ai-use)
-
----
-
-# The Game Ledger — Game Blog
-
-**Live site:** _TBD_
-**Repository:** https://github.com/JoshuaCottle/game_blog
+- [Credits](#credits)
+- [License](#license)
+- [Contact](#contact)
 
 ---
 
@@ -61,14 +35,6 @@ The Game Ledger is a Django-powered blog platform for video, board, and tabletop
 
 **Author:** Joshua Cottle  
 **Responsibilities:** Project structure, Django models/views/forms, templates, styling, documentation
-
----
-
-## Database Structure dbdoc/mermaid (ERD)
-
-![Game_Blog ERD](Images/mermaid-diagram-2026-02-26-225209.png)
-
-Interactive ERD: [View on dbdocs.io](https://dbdocs.io/jcottle33/Game-Blog-DIagram?view=relationships)
 
 ---
 
@@ -101,12 +67,167 @@ Interactive ERD: [View on dbdocs.io](https://dbdocs.io/jcottle33/Game-Blog-DIagr
 - Admin moderation for posts/comments
 
 ---
+
 ## Design & Accessibility
 - Clean, card-based layout
 - Accessible form controls, clear spacing
 - Responsive for desktop and mobile
 - Semantic HTML, ARIA labels, skip-to-content link
 - Lighthouse audit for WCAG compliance
+
+---
+
+## Wireframes
+
+### Home / Post List (Desktop)
+![Home Desktop Wireframe](Images/01-home-desktop.svg)
+```
+------------------------------------------------------
+| Logo         Home  Login/Register  Profile           |
+------------------------------------------------------
+| Filter: Video  Board  Tabletop  Tags                 |
+------------------------------------------------------
+| Search Bar                                       [ ] |
+------------------------------------------------------
+| [Post Card]   [Post Card]   [Post Card]   ...        |
+|  - Image      - Title        - Excerpt               |
+|  - Author     - Date         - Like/Comment Count    |
+------------------------------------------------------
+| Pagination                                          |
+------------------------------------------------------
+```
+
+### Home / Post List (Mobile)
+![Home Mobile Wireframe](Images/02-home-mobile.svg)
+```
+-------------------------------+
+| Logo        ☰                 |
+-------------------------------+
+| Filter: Video  Board  Tabletop|
+| Tags                          |
+-------------------------------+
+| Search Bar                    |
+-------------------------------+
+| [Post Card]                   |
+|  - Image                      |
+|  - Title                      |
+|  - Excerpt                    |
+|  - Author  Date  Like/Comment |
+-------------------------------+
+| Pagination                    |
+-------------------------------+
+```
+
+### Post Detail (Desktop)
+![Post Detail Desktop Wireframe](Images/03-post-detail-desktop.svg)
+```
+------------------------------------------------------
+| Logo         Home  Login/Register  Profile           |
+------------------------------------------------------
+| Post Title                                         |
+| by Author on Date   [Edit] [Delete] (if author)     |
+------------------------------------------------------
+| [Image]                                            |
+| [Content]                                          |
+| [Tags]                                             |
+------------------------------------------------------
+| Like Button  Like Count  Comment Count              |
+------------------------------------------------------
+| Comments:                                          |
+|  - User  Date  Comment Text  [Delete] (if owner)    |
+|  ...                                               |
+------------------------------------------------------
+| Add Comment Form                                   |
+------------------------------------------------------
+```
+
+### Post Create/Edit (Desktop)
+![Post Create/Edit Desktop Wireframe](Images/04-create-edit-desktop.svg)
+```
+------------------------------------------------------
+| Logo         Home  Logout  Profile                   |
+------------------------------------------------------+
+| Form: Title                                         |
+| Form: Game Type Dropdown                            |
+| Form: Tags Multi-select                             |
+| Form: Image Upload                                  |
+| Form: Excerpt                                       |
+| Form: Content                                       |
+| [Submit] [Cancel]                                   |
+------------------------------------------------------+
+```
+
+### Login/Register (Desktop)
+![Login/Register Desktop Wireframe](Images/05-login-register-desktop.svg)
+```
+------------------------------------------------------+
+| Logo         Home  Register                          |
+------------------------------------------------------+
+| Login Form:                                         |
+|  - Username                                         |
+|  - Password                                         |
+|  [Login]                                            |
+|  [Register Link]                                    |
+------------------------------------------------------+
+| Register Form:                                      |
+|  - Username                                         |
+|  - Email                                            |
+|  - Password                                         |
+|  - Confirm Password                                 |
+|  [Register]                                         |
+------------------------------------------------------+
+```
+
+### Mobile Views (All Pages)
+![Mobile Views Wireframe](Images/06-mobile-views.svg)
+```
+-------------------------------+
+| Logo        ☰                 |
+-------------------------------+
+| Post Title                    |
+| Author  Date                  |
+-------------------------------+
+| [Image]                       |
+| [Content]                     |
+| [Tags]                        |
+-------------------------------+
+| Like Button  Like/Comment     |
+-------------------------------+
+| Comments                      |
+|  - User  Date  Text  [Delete] |
+-------------------------------+
+| Add Comment Form              |
+-------------------------------+
+| Form: Title                   |
+| Form: Game Type               |
+| Form: Tags                    |
+| Form: Image Upload            |
+| Form: Excerpt                 |
+| Form: Content                 |
+| [Submit] [Cancel]             |
+-------------------------------+
+| Login Form                    |
+|  - Username                   |
+|  - Password                   |
+|  [Login]                      |
+|  [Register Link]              |
+-------------------------------+
+| Register Form                 |
+|  - Username                   |
+|  - Email                      |
+|  - Password                   |
+|  - Confirm Password           |
+|  [Register]                   |
+-------------------------------+
+```
+
+---
+
+## Database Structure (ERD)
+
+![Game_Blog ERD](Images/mermaid-diagram-2026-02-26-225209.png)
+
+Interactive ERD: [View on dbdocs.io](https://dbdocs.io/jcottle33/Game-Blog-DIagram?view=relationships)
 
 ---
 
@@ -202,3 +323,25 @@ Client-side JS validation and instant notification logic are tested using Jest.
 ## Credits
 - Project Author: Joshua Cottle
 - Icons/Images: Author-provided or user-uploaded content
+
+---
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+---
+
+## Contact
+For questions or feedback, contact [Joshua Cottle](https://github.com/JoshuaCottle).
+
+---
+
+## Validation & Accessibility
+
+### Lighthouse Audit
+
+A Lighthouse accessibility and performance audit was run on the deployed site. See the full report:
+
+[![Lighthouse Report](Images/lighthouse_report.png)](Images/lighthouse_report.png)
+
+Or download the full PDF: [Lighthouse Report PDF](Images/light%20house.pdf)
