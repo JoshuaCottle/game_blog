@@ -1,6 +1,17 @@
-# The Game Ledger — Game Blog
+## Table of Contents
+- [Features](#features)
+- [User Stories](#user-stories)
+- [Design & Accessibility](#design--accessibility)
+- [Technologies Used](#technologies-used)
+- [Testing](#testing)
+- [JavaScript Testing](#javascript-testing)
+- [Deployment](#deployment)
+- [Local Setup](#local-setup)
+- [AI Use](#ai-use)
 
 ---
+
+# The Game Ledger — Game Blog
 
 **Live site:** _TBD_
 **Repository:** https://github.com/JoshuaCottle/game_blog
@@ -16,17 +27,58 @@ The Game Ledger is a Django-powered blog platform for video, board, and tabletop
 
 ---
 
-## Table of Contents
-- [Features](#features)
-- [User Stories](#user-stories)
-- [Design & Accessibility](#design--accessibility)
-- [Technologies Used](#technologies-used)
-- [Testing](#testing)
-- [JavaScript Testing](#javascript-testing)
-- [Deployment](#deployment)
-- [Local Setup](#local-setup)
-- [AI Use](#ai-use)
-- [Credits](#credits)
+## Database Structure (ERD)
+
+![Game_Blog ERD](Images/mermaid-diagram-2026-02-26-225209.png)
+
+Interactive ERD: [View on dbdocs.io](https://dbdocs.io/jcottle33/Game-Blog-DIagram?view=relationships)
+
+```mermaid
+erDiagram
+   USER {
+      id_PK int
+      username varchar
+   }
+   POST {
+      id_PK int
+      author_id_FK int
+      title varchar
+      slug varchar
+      game_type varchar
+      excerpt text
+      content text
+      published boolean
+      created_at datetime
+      updated_at datetime
+   }
+   TAG {
+      id_PK int
+      name varchar
+      slug varchar
+   }
+   COMMENT {
+      id_PK int
+      author_id_FK int
+      post_id_FK int
+      body text
+      active boolean
+      created_at datetime
+      updated_at datetime
+   }
+   LIKE {
+      id_PK int
+      post_id_FK int
+      user_id_FK int
+      created_at datetime
+   }
+
+   USER ||--o{ POST : author_id_FK
+   USER ||--o{ COMMENT : author_id_FK
+   USER ||--o{ LIKE : user_id_FK
+   POST ||--o{ COMMENT : post_id_FK
+   POST ||--o{ LIKE : post_id_FK
+   POST }o--o{ TAG : tags
+```
 
 ---
 
@@ -59,7 +111,6 @@ The Game Ledger is a Django-powered blog platform for video, board, and tabletop
 - Admin moderation for posts/comments
 
 ---
-
 ## Design & Accessibility
 - Clean, card-based layout
 - Accessible form controls, clear spacing
