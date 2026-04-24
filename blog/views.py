@@ -118,12 +118,28 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     form_class = PostForm
     template_name = 'blog/post_form.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        form = context.get('form')
+        if self.request.method == 'POST':
+            selected_tag_ids = self.request.POST.getlist('tags')
+        elif form and form.instance.pk:
+            selected_tag_ids = [
+                str(tag_id)
+                for tag_id in form.instance.tags.values_list(
+                    'id', flat=True
+                )
+            ]
+        else:
+            selected_tag_ids = []
+        context['selected_tag_ids'] = selected_tag_ids
+        return context
+
     def form_valid(self, form):
         response = super().form_valid(form)
         # Save tags from checkbox selection
         tags = self.request.POST.getlist('tags')
-        if tags:
-            self.object.tags.set(tags)
+        self.object.tags.set(tags)
         messages.success(
             self.request, 'Your post has been updated successfully!'
         )

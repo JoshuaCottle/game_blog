@@ -13,7 +13,7 @@
         <label>Tags:</label><br>
         {% for tag in form.tags.field.queryset %}
             <input type="checkbox" name="tags" value="{{ tag.pk }}"
-                {% if tag.pk in form.data.tags or tag.pk in form.initial.tags %}checked{% endif %}> {{ tag.name }}<br>
+                {% if tag.pk|stringformat:'s' in selected_tag_ids %}checked{% endif %}> {{ tag.name }}<br>
         {% endfor %}
         {{ form.image.label_tag }} {{ form.image }}<br>
         {{ form.content.label_tag }} <textarea name="content" id="id_content" rows="8" required>{{ form.content.value }}</textarea><br>
@@ -43,6 +43,5 @@
         }
     });
     </script>
-    </form>
 </div>
 {% endblock %}

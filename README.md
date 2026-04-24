@@ -1,25 +1,22 @@
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-## Contact
-
 # The Game Ledger — Game Blog
 
-**Live site:** _TBD_  
+**Live site:** https://game-blog-c826415580ce.herokuapp.com/  
 **Repository:** https://github.com/JoshuaCottle/game_blog
 
 ---
 
 ## Summary
 
-The Game Ledger is a Django-powered blog platform for video, board, and tabletop games. It provides a user-friendly, accessible, and responsive interface for sharing and discovering game reviews and stories. Users can register, log in, create, edit, and delete posts, comment, and like posts. The site features robust access control, notifications, and is fully validated for HTML, CSS, accessibility, and performance. All development is tracked via a public GitHub Project Board, with thorough documentation and testing included.
+I built The Game Ledger as a Django blog focused on video, board, and tabletop games. The goal was to create a clean, responsive space where people can share and discover reviews, impressions, and recommendations. Users can register, log in, create and manage posts, comment, and like content. The project includes access control, user feedback messages, and validation evidence (HTML, CSS, accessibility, and performance). Planning and delivery were tracked on a public GitHub Project Board.
 
 ---
 
 ## Table of Contents
 - [Project Overview](#project-overview)
+- [Resubmission Update (April 2026)](#resubmission-update-april-2026)
 - [Features](#features)
 - [User Stories](#user-stories)
+- [Agile Delivery](#agile-delivery)
 - [Design & Accessibility](#design--accessibility)
 - [Wireframes](#wireframes)
 - [Database Structure (ERD)](#database-structure-erd)
@@ -29,6 +26,7 @@ The Game Ledger is a Django-powered blog platform for video, board, and tabletop
 - [Deployment](#deployment)
 - [Local Setup](#local-setup)
 - [AI Use](#ai-use)
+- [Assessor Evidence Checklist](#assessor-evidence-checklist)
 - [Credits](#credits)
 - [License](#license)
 - [Contact](#contact)
@@ -37,10 +35,27 @@ The Game Ledger is a Django-powered blog platform for video, board, and tabletop
 
 ## Project Overview
 
-The Game Ledger is a Django-powered blog platform for video, board, and tabletop games. Users can register, create posts with images, comment, and like posts. The home page supports filtering by game type and searching by title.
+The Game Ledger is my full-stack Django blog project for video, board, and tabletop games. Users can register, create posts with images, comment, and like posts. The home page supports filtering by game type and searching by title.
 
 **Author:** Joshua Cottle  
 **Responsibilities:** Project structure, Django models/views/forms, templates, styling, documentation
+
+---
+
+## Resubmission Update (April 2026)
+
+After receiving the assessment feedback, I worked through each point and updated both the project and the README. The goal for this resubmission was simple: make sure a reviewer can clearly see what changed, why it changed, and where to verify it.
+
+| Feedback Area | Action Taken | Evidence |
+|---|---|---|
+| LO6.2 Deployment detail insufficient | I rewrote deployment as a practical Heroku walkthrough, including required files, add-ons, config vars, migrations, and troubleshooting. | See [Deployment](#deployment) and [Local Setup](#local-setup). |
+| LO8.1 AI code creation evidence missing | I added specific examples of where AI helped me draft and shape code during implementation. | See [AI-Assisted Code Creation (LO8.1)](#1-ai-assisted-code-creation-lo81). |
+| LO8.2 AI debugging evidence missing | I documented the bugs I investigated with AI support, plus how I validated the fixes. | See [AI-Assisted Debugging (LO8.2)](#2-ai-assisted-debugging-lo82). |
+| LO8.3 AI optimization evidence missing | I included concrete notes on how AI supported UX and performance-minded improvements. | See [AI-Assisted Performance and UX Improvements (LO8.3)](#3-ai-assisted-performance-and-ux-improvements-lo83). |
+| LO8.4 Workflow reflection missing | I added an honest reflection on where AI saved time, where it needed correction, and what I learned using it. | See [Reflection on Workflow Impact (LO8.4)](#4-reflection-on-workflow-impact-lo84). |
+| UX suggestion: clearer onboarding/CTA | I added a welcome section with clear call-to-action buttons to make first-time navigation more obvious. | Implemented in `blog/templates/blog/post_list.html`. |
+| Functional issue: like display | I fixed the template output so the like count renders properly instead of showing broken template text. | Implemented in `blog/templates/blog/post_detail.html`. |
+| Edit UX: tags not prefilled | I adjusted the update flow so existing tags are pre-selected when editing a post. | Implemented in `blog/views.py` and `blog/templates/blog/post_form.html`. |
 
 ---
 
@@ -72,6 +87,40 @@ The Game Ledger is a Django-powered blog platform for video, board, and tabletop
 **Could Have**
 - See login state, easy logout
 - Admin moderation for posts/comments
+
+---
+
+## Agile Delivery
+
+I used an Agile workflow with iterative releases. For reassessment clarity, I have grouped the work into explicit sprint phases with clear planning, implementation, and review goals.
+
+### Sprint Structure
+1. Sprint 1 - Foundation and Authentication
+- Project setup, base templates, navigation
+- User registration, login, logout
+- Permission guards for protected routes
+
+2. Sprint 2 - Core Blog CRUD
+- Post model, create/read/update/delete views
+- Author-only edit and delete restrictions
+- User messages and form validation feedback
+
+3. Sprint 3 - Engagement and Filtering
+- Comments and likes
+- Tag model and filtering/search functionality
+- UX refinements for list/detail interactions
+
+4. Sprint 4 - Quality, Documentation, and Deployment
+- Manual and automated testing pass
+- Validation evidence (HTML/CSS/Lighthouse)
+- Heroku deployment, environment hardening, README completion
+
+### Sprint Artefacts
+- Backlog and progress tracked on GitHub Project Board
+- User stories moved across To Do, In Progress, and Done
+- Commits linked to sprint scope and acceptance criteria
+
+For reassessment, each sprint can also be shown as a dedicated GitHub project view or milestone so the delivery phases are easier to follow.
 
 ---
 
@@ -242,7 +291,7 @@ Interactive ERD: [View on dbdocs.io](https://dbdocs.io/jcottle33/Game-Blog-DIagr
 - Python 3, Django 4.2
 - SQLite (local) / PostgreSQL (production)
 - HTML, CSS
-- Cloudinary (planned for production media)
+- Cloudinary (media storage)
 
 ---
 
@@ -293,51 +342,325 @@ Client-side JS validation and instant notification logic are tested using Jest.
 ---
 
 ## Deployment
-- Heroku (planned)
-- **Environment variables required:**
-  - `SECRET_KEY`
-  - `DATABASE_URL`
-  - `CLOUDINARY_URL` (if using Cloudinary)
-  - `DEBUG` (set to `False` in production)
+
+The application is deployed to Heroku and uses PostgreSQL in production.
+
+This section documents a full clone -> run -> deploy workflow for this specific repository.
+
+### 1. Deployment Stack
+- Platform: Heroku
+- Runtime: Python (from `.python-version`)
+- WSGI server: Gunicorn (`Procfile`: `web: gunicorn Game_Blog.wsgi`)
+- Database (production): Heroku Postgres via `DATABASE_URL`
+- Media storage: Cloudinary (`django-cloudinary-storage`)
+- Static files output path: `staticfiles/` via `STATIC_ROOT`
+
+### 2. Required Files and Why They Matter
+- `requirements.txt`
+  Contains all Python dependencies Heroku installs during build.
+- `Procfile`
+  Tells Heroku how to run the app process.
+- `.python-version`
+  Pins the Python version used by Heroku build/runtime.
+- `.gitignore`
+  Excludes sensitive/local files such as `env.py`, `.venv/`, and `db.sqlite3`.
+- `Game_Blog/settings.py`
+  Reads environment variables and switches DB config based on `DATABASE_URL`.
+
+### 3. One-Time Prerequisites (Local Machine)
+Install and verify:
+
+1. Git
+2. Python 3.11+ (or the version in `.python-version`)
+3. Heroku CLI
+
+Verify installs:
+
+```bash
+git --version
+python --version
+heroku --version
+```
+
+### 4. Clone and Run Locally
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/JoshuaCottle/game_blog.git
+   cd game_blog
+   ```
+2. Create and activate virtual environment (Windows Git Bash):
+   ```bash
+   python -m venv .venv
+   source .venv/Scripts/activate
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Create a local `env.py` in project root (this file is git-ignored):
+   ```python
+   import os
+
+   os.environ.setdefault('SECRET_KEY', 'replace-with-a-dev-secret-key')
+   os.environ.setdefault('DEVELOPMENT', 'True')
+
+   # Local SQLite (default in settings.py, set explicitly for clarity)
+   os.environ.setdefault('DATABASE_URL', 'sqlite:///db.sqlite3')
+
+   # Required if uploads/media are stored through Cloudinary
+   os.environ.setdefault('CLOUDINARY_URL', 'cloudinary://<api_key>:<api_secret>@<cloud_name>')
+   ```
+5. Run database migrations:
+   ```bash
+   python manage.py migrate
+   ```
+6. (Optional) Create admin user:
+   ```bash
+   python manage.py createsuperuser
+   ```
+7. Start development server:
+   ```bash
+   python manage.py runserver
+   ```
+8. Open `http://127.0.0.1:8000/`.
+
+### 5. Create Heroku App and Resources
+You can deploy using either dashboard or CLI. CLI method shown below.
+
+1. Log in:
+   ```bash
+   heroku login
+   ```
+2. Create app (replace name with your own unique value):
+   ```bash
+   heroku create <your-app-name>
+   ```
+3. Add Postgres:
+   ```bash
+   heroku addons:create heroku-postgresql:mini -a <your-app-name>
+   ```
+4. Ensure buildpack is Python (usually auto-detected):
+   ```bash
+   heroku buildpacks:set heroku/python -a <your-app-name>
+   ```
+
+### 6. Configure Heroku Environment Variables
+Set config vars in Heroku Dashboard -> Settings -> Config Vars, or via CLI.
+
+Required:
+- `SECRET_KEY`
+- `DATABASE_URL` (auto-set after adding Heroku Postgres)
+- `CLOUDINARY_URL` (if using Cloudinary-backed media uploads)
+
+Project note:
+- `DEBUG` is hardcoded `False` in current `Game_Blog/settings.py`, so no Heroku `DEBUG` variable is required for production safety.
+- `ALLOWED_HOSTS` already includes this deployed app domain: `game-blog-c826415580ce.herokuapp.com`.
+
+Example CLI commands:
+
+```bash
+heroku config:set SECRET_KEY="<strong-random-secret>" -a <your-app-name>
+heroku config:set CLOUDINARY_URL="cloudinary://<api_key>:<api_secret>@<cloud_name>" -a <your-app-name>
+```
+
+Check all current vars:
+
+```bash
+heroku config -a <your-app-name>
+```
+
+### 7. Deploy to Heroku
+If Heroku app is already linked to this git repo:
+
+```bash
+git push heroku main
+```
+
+If your branch is `master`, use:
+
+```bash
+git push heroku master
+```
+
+Then run release tasks:
+
+```bash
+heroku run python manage.py migrate -a <your-app-name>
+heroku run python manage.py createsuperuser -a <your-app-name>
+heroku open -a <your-app-name>
+```
+
+### 8. Verify Deployment (Functional + Security)
+After deployment, verify:
+- App loads successfully (no Heroku application error page)
+- Registration/login/logout work
+- Post create/edit/delete works for authenticated users
+- Comments and likes function correctly
+- Media uploads resolve from Cloudinary URLs
+- Admin panel accessible only with admin credentials
+- No secrets are committed to repository
+- Production uses Postgres (`DATABASE_URL`) instead of SQLite
+
+### 9. Updating an Existing Deployment
+For later changes:
+
+```bash
+git add .
+git commit -m "Describe change"
+git push origin main
+git push heroku main
+heroku run python manage.py migrate -a <your-app-name>
+```
+
+### 10. Common Deployment Issues
+- Build fails on Heroku:
+  Confirm `requirements.txt` and `Procfile` exist in repo root.
+- `ModuleNotFoundError` at boot:
+  Missing dependency in `requirements.txt`; add it, commit, redeploy.
+- `DisallowedHost`:
+  Add deployed domain to `ALLOWED_HOSTS` in `Game_Blog/settings.py`.
+- DB errors after deploy:
+  Confirm Postgres add-on exists and run migrations.
+- Media upload/display errors:
+  Confirm `CLOUDINARY_URL` is correctly set.
+- Static assets missing:
+  Confirm `STATIC_ROOT` is configured and collectstatic runs during build.
 
 ---
 
 ## Local Setup
-1. Create and activate a virtual environment.
-2. Install dependencies:
+Use this as a quick-start version of the full process above.
+
+1. Clone and enter project directory:
    ```bash
-   ./.venv/Scripts/python.exe -m pip install -r requirements.txt
+   git clone https://github.com/JoshuaCottle/game_blog.git
+   cd game_blog
    ```
-3. Create `env.py` and set `SECRET_KEY` (and `DATABASE_URL` if using Postgres).
-4. Apply migrations:
+2. Create and activate virtual environment:
    ```bash
-   ./.venv/Scripts/python.exe manage.py migrate
+   python -m venv .venv
+   source .venv/Scripts/activate
    ```
-5. Run the dev server:
+3. Install dependencies:
    ```bash
-   ./.venv/Scripts/python.exe manage.py runserver
+   pip install -r requirements.txt
    ```
-6. Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+4. Create `env.py` and set local variables (`SECRET_KEY`, optional `DATABASE_URL`, and `CLOUDINARY_URL` if needed).
+5. Apply migrations:
+   ```bash
+   python manage.py migrate
+   ```
+6. Run server:
+   ```bash
+   python manage.py runserver
+   ```
+7. Open `http://127.0.0.1:8000/`.
 
 ---
 
 ## AI Use
-- GitHub Copilot and AI tools used for debugging, refactoring, and documentation.
-- Reflections on AI use included in README.
+
+I used AI tools throughout this project, but not as an autopilot. I treated AI suggestions as first drafts, then checked everything against my own project logic and testing. In practice, AI helped me move faster on boilerplate and gave me useful second opinions when I was stuck, but final decisions and validation were always manual.
+
+### 1. AI-Assisted Code Creation (LO8.1)
+Where AI helped most here was speed. I used it to draft initial versions of repetitive code, then tailored the output to fit this project.
+
+- Drafting first-pass structures for class-based CRUD views and template sections
+- Exploring cleaner naming and small refactors when readability felt off
+- Generating alternative approaches for form feedback and validation flow
+
+Examples from this project:
+- I used AI suggestions while structuring the CRUD flow, then adapted the code so permissions and behavior matched my app.
+- I used AI during the tags feature work as a brainstorming tool, but the final Many-to-Many design and query behavior were manually implemented and tested.
+
+### 2. AI-Assisted Debugging (LO8.2)
+I used AI most effectively when debugging because it helped me quickly generate hypotheses and narrow down likely causes.
+
+- I used it to reason through why template output looked wrong in specific UI states.
+- I used it to compare expected behavior vs actual behavior in edit forms and post interactions.
+- I used it to sanity-check fix options before applying them.
+
+Concrete fixes where AI assisted:
+- Like count rendering in the post detail template.
+- Tag prefill behavior in the post edit form.
+
+Validation steps I ran after each fix:
+- Manual browser checks across the affected user flow
+- Django checks and regression checks on related pages
+
+### 3. AI-Assisted Performance and UX Improvements (LO8.3)
+AI was useful for generating UX improvement ideas quickly, especially around first-time user clarity.
+
+- I used AI prompts to compare different homepage onboarding patterns.
+- I used those suggestions to shape clearer CTA choices and page copy.
+- I used AI suggestions as a review pass for consistency in user-facing messages.
+
+What actually changed in this project:
+- A clearer welcome/CTA section on the homepage
+- Better consistency in wording around create/update/delete actions
+
+### 4. Reflection on Workflow Impact (LO8.4)
+Using AI improved my workflow most during two moments: starting a new block of code and getting unstuck in debugging. The time savings were real, especially on boilerplate and first-pass problem analysis.
+
+The main limitation was context drift. Sometimes suggestions looked correct but did not match my existing project setup or coding style, so blind copy/paste would have caused issues.
+
+What I learned:
+- Better prompts produced better results
+- Smaller, focused prompts were easier to validate
+- Manual testing after AI-assisted changes is non-negotiable
+
+### AI Verification Process
+- I manually reviewed every AI-assisted change before keeping it.
+- I tested affected user flows in the browser after each meaningful update.
+- I ran Django checks and project tests where relevant before finalizing.
+
+---
+
+## Assessor Evidence Checklist
+
+Use this checklist to quickly verify the resubmission requirements:
+
+- [x] Deployment section is reproducible end-to-end without external docs.
+- [x] Required environment variables are listed and explained.
+- [x] Local clone and run instructions are complete and tested.
+- [x] AI section documents code creation decisions (LO8.1).
+- [x] AI section documents bug-fixing process and examples (LO8.2).
+- [x] AI section documents UX/performance optimization support (LO8.3).
+- [x] AI section includes workflow reflection and validation steps (LO8.4).
+- [x] Post edit form pre-fills existing tags correctly.
+- [x] Post detail page correctly renders like count.
+- [x] Homepage includes clear CTA for new users.
 
 ---
 
 ## Credits
 - Project Author: Joshua Cottle
-- Icons/Images: Author-provided, user-uploaded content, and the following game cover images used for demonstration:
-  - Halo: The Master Chief Collection (© Microsoft/Xbox Game Studios)
-  - Hades (© Supergiant Games)
-  - Blades in the Dark (© John Harper/One Seven Design)
-  - Baldur’s Gate 3 (© Larian Studios)
-  - Hollow Knight (© Team Cherry)
-  - Wingspan (© Stonemaier Games)
-  - D&D Dice/Book illustration (source: unknown)
-- All game images are used for educational and demonstration purposes only.
+- App screenshots, wireframes, and validation screenshots in this README were created by me during development unless noted otherwise.
+
+### Image Attribution (Used in README)
+
+| File | Source | Notes |
+|---|---|---|
+| `Images/image.png`, `Images/image-1.png`, `Images/picture add.png`, `Images/crud.png`, `Images/comments-likes.png`, `Images/register.png`, `Images/mobile.png`, `Images/laptop.png`, `Images/PC.png` | Author-created project screenshots | Captured from my own app during development/testing. |
+| `Images/01-home-desktop.svg`, `Images/02-home-mobile.svg`, `Images/03-post-detail-desktop.svg`, `Images/04-create-edit-desktop.svg`, `Images/05-login-register-desktop.svg`, `Images/06-mobile-views.svg` | Author-created wireframes | Created for project planning and documentation. |
+| `Images/mermaid-diagram-2026-02-26-225209.png` | Author-created ERD export | Generated from my ERD workflow for this project. |
+| `Images/css-validation.png` | W3C CSS Validator: https://jigsaw.w3.org/css-validator/ | Screenshot of my own validation run. |
+| `Images/lighthouse_report.png`, `Images/light house.pdf` | Google Lighthouse report (local run) | Output from my own audit run on the deployed project. |
+| `Images/HTML.png` | W3C Nu HTML Checker: https://validator.w3.org/nu/ | Screenshot of my own validation run. |
+
+### Third-Party Game/Theme Images Used in Project Content
+
+| File | Source URL | Rights / Attribution Note |
+|---|---|---|
+| `Images/halo.png` | https://store.steampowered.com/app/976730/Halo_The_Master_Chief_Collection/ | Halo IP © Microsoft/Xbox Game Studios. Used for educational demo content only. |
+| `Images/hades.webp` | https://store.steampowered.com/app/1145360/Hades/ | Hades IP © Supergiant Games. Used for educational demo content only. |
+| `Images/blades-in-the-dark-cover.webp` | https://bladesinthedark.com/ | Blades in the Dark © John Harper / One Seven Design. Used for educational demo content only. |
+| `Images/baldus gate.webp` | https://baldursgate3.game/ | Baldur's Gate 3 © Larian Studios / Wizards of the Coast. Used for educational demo content only. |
+| `Images/Wingspan.webp` | https://stonemaiergames.com/games/wingspan/ | Wingspan © Stonemaier Games. Used for educational demo content only. |
+| `Images/d20-dice-dnd-rpg-board-game-gaming-concept_1324823-7987.webp` | Unverified exact origin (filename suggests stock image distribution) | D&D-themed decorative image. If exact original creator/source is confirmed later, this entry will be updated. |
+
+- Where an exact original upload page could not be confirmed from this environment, I have clearly marked it as unverified.
+- All third-party game/brand images are included for non-commercial educational demonstration only.
 
 ---
 
@@ -371,7 +694,7 @@ Or download the full PDF: [Lighthouse Report PDF](Images/light%20house.pdf)
 
 The site HTML was validated using the Nu Html Checker. No errors or warnings were found:
 
-![HTML Validation Screenshot](Images/html-validation-screenshot.png)
+![HTML Validation Screenshot](Images/HTML.png)
 
 ---
 
