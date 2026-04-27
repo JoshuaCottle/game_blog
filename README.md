@@ -25,7 +25,6 @@ I built The Game Ledger as a Django blog focused on video, board, and tabletop g
 - [Deployment](#deployment)
 - [Local Setup](#local-setup)
 - [AI Use](#ai-use)
-- [Assessor Evidence Checklist](#assessor-evidence-checklist)
 - [Credits](#credits)
 - [License](#license)
 - [Contact](#contact)
@@ -608,24 +607,6 @@ The examples below are representative prompt snippets from my development workfl
 | Pre-fill tags on post edit | "In UpdateView and template checkboxes, preselect existing ManyToMany tags when editing a post." | Suggested passing selected tag IDs from view context and checking IDs in the template loop. | Verified existing tags appear checked on the edit screen and persist correctly after save. | [379c248](https://github.com/JoshuaCottle/game_blog/commit/379c248) |
 | Improve first-time user onboarding | "Suggest a simple welcome section with clear CTAs for a Django blog list page." | Suggested adding welcome copy with browse/create account actions based on auth state. | Confirmed visibility and behavior for authenticated and unauthenticated users. | [379c248](https://github.com/JoshuaCottle/game_blog/commit/379c248) |
 | Improve deployment reproducibility documentation | "Create a practical Heroku deployment checklist including required files, config vars, and migration steps." | Produced a structured draft that I adapted to this repository's exact settings and stack. | Cross-checked against `Game_Blog/settings.py`, `Procfile`, and installed packages before publishing. | [379c248](https://github.com/JoshuaCottle/game_blog/commit/379c248), [db3b453](https://github.com/JoshuaCottle/game_blog/commit/db3b453) |
-
----
-
-## Assessor Evidence Checklist
-
-Use this checklist to quickly verify the assessed requirements:
-
-- [x] Deployment section is reproducible end-to-end without external docs.
-- [x] Required environment variables are listed and explained.
-- [x] Local clone and run instructions are complete and tested.
-- [x] AI section documents code creation decisions (LO8.1).
-- [x] AI section documents bug-fixing process and examples (LO8.2).
-- [x] AI section documents UX/performance optimization support (LO8.3).
-- [x] AI section includes workflow reflection and validation steps (LO8.4).
-- [x] AI section includes prompt examples mapped to commit evidence.
-- [x] Post edit form pre-fills existing tags correctly.
-- [x] Post detail page correctly renders like count.
-- [x] Homepage includes clear CTA for new users.
 
 ---
 
