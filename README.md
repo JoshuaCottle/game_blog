@@ -7,13 +7,12 @@
 
 ## Summary
 
-I built The Game Ledger as a Django blog focused on video, board, and tabletop games. The goal was to create a clean, responsive space where people can share and discover reviews, impressions, and recommendations. Users can register, log in, create and manage posts, comment, and like content. The project includes access control, user feedback messages, and validation evidence (HTML, CSS, accessibility, and performance). Planning and delivery were tracked on a public GitHub Project Board.
+I built The Game Ledger as a Django blog focused on video, board, and tabletop games. The goal was to create a clean, responsive space where people can share and discover reviews, impressions, and recommendations. Users can register, log in, create and manage posts, comment, and like content. The project includes access control, user feedback messages, and validation evidence (HTML, CSS, accessibility, and performance). Planning and delivery were tracked on a public GitHub Project Board. Assessment-driven improvements are integrated directly into the relevant sections below (especially Features, Deployment, and AI Use) rather than listed as a separate addendum.
 
 ---
 
 ## Table of Contents
 - [Project Overview](#project-overview)
-- [Resubmission Update (April 2026)](#resubmission-update-april-2026)
 - [Features](#features)
 - [User Stories](#user-stories)
 - [Agile Delivery](#agile-delivery)
@@ -42,23 +41,6 @@ The Game Ledger is my full-stack Django blog project for video, board, and table
 
 ---
 
-## Resubmission Update (April 2026)
-
-After receiving the assessment feedback, I worked through each point and updated both the project and the README. The goal for this resubmission was simple: make sure a reviewer can clearly see what changed, why it changed, and where to verify it.
-
-| Feedback Area | Action Taken | Evidence |
-|---|---|---|
-| LO6.2 Deployment detail insufficient | I rewrote deployment as a practical Heroku walkthrough, including required files, add-ons, config vars, migrations, and troubleshooting. | See [Deployment](#deployment) and [Local Setup](#local-setup). |
-| LO8.1 AI code creation evidence missing | I added specific examples of where AI helped me draft and shape code during implementation. | See [AI-Assisted Code Creation (LO8.1)](#1-ai-assisted-code-creation-lo81). |
-| LO8.2 AI debugging evidence missing | I documented the bugs I investigated with AI support, plus how I validated the fixes. | See [AI-Assisted Debugging (LO8.2)](#2-ai-assisted-debugging-lo82). |
-| LO8.3 AI optimization evidence missing | I included concrete notes on how AI supported UX and performance-minded improvements. | See [AI-Assisted Performance and UX Improvements (LO8.3)](#3-ai-assisted-performance-and-ux-improvements-lo83). |
-| LO8.4 Workflow reflection missing | I added an honest reflection on where AI saved time, where it needed correction, and what I learned using it. | See [Reflection on Workflow Impact (LO8.4)](#4-reflection-on-workflow-impact-lo84). |
-| UX suggestion: clearer onboarding/CTA | I added a welcome section with clear call-to-action buttons to make first-time navigation more obvious. | Implemented in `blog/templates/blog/post_list.html`. |
-| Functional issue: like display | I fixed the template output so the like count renders properly instead of showing broken template text. | Implemented in `blog/templates/blog/post_detail.html`. |
-| Edit UX: tags not prefilled | I adjusted the update flow so existing tags are pre-selected when editing a post. | Implemented in `blog/views.py` and `blog/templates/blog/post_form.html`. |
-
----
-
 ## Features
 - Post list with filter buttons (video, board, tabletop, tags) ![post filter buttons](Images/image.png)
 - Search by post title ![search bar functionality](Images/image-1.png)
@@ -69,6 +51,9 @@ After receiving the assessment feedback, I worked through each point and updated
 - Responsive, accessible design ![mobile](Images/mobile.png)
   ![laptop](Images/laptop.png)
   ![PC](Images/PC.png)
+- Welcome section and clear CTAs on the homepage for first-time users
+- Like count rendering fixed on post detail pages
+- Edit form now pre-selects existing tags when updating a post
 ---
 
 ## User Stories
@@ -345,7 +330,7 @@ Client-side JS validation and instant notification logic are tested using Jest.
 
 The application is deployed to Heroku and uses PostgreSQL in production.
 
-This section documents a full clone -> run -> deploy workflow for this specific repository.
+This section documents a full clone -> run -> deploy workflow for this specific repository so a reviewer can reproduce deployment without external setup guides.
 
 ### 1. Deployment Stack
 - Platform: Heroku
@@ -614,11 +599,21 @@ What I learned:
 - I tested affected user flows in the browser after each meaningful update.
 - I ran Django checks and project tests where relevant before finalizing.
 
+### 5. AI Prompt Log (Examples + Commit Evidence)
+The examples below are representative prompt snippets from my development workflow and are linked to corresponding repository commits.
+
+| Goal | Prompt Snippet Used | AI Output Used | My Validation | Commit Evidence |
+|---|---|---|---|---|
+| Fix like count rendering in post detail | "In Django template post detail, fix like count rendering so it prints an integer count beside Like/Unlike." | Suggested using `{{ post.likes.count }}` directly in the button label. | Confirmed the post detail page renders the count correctly before and after toggling likes while authenticated. | [379c248](https://github.com/JoshuaCottle/game_blog/commit/379c248) |
+| Pre-fill tags on post edit | "In UpdateView and template checkboxes, preselect existing ManyToMany tags when editing a post." | Suggested passing selected tag IDs from view context and checking IDs in the template loop. | Verified existing tags appear checked on the edit screen and persist correctly after save. | [379c248](https://github.com/JoshuaCottle/game_blog/commit/379c248) |
+| Improve first-time user onboarding | "Suggest a simple welcome section with clear CTAs for a Django blog list page." | Suggested adding welcome copy with browse/create account actions based on auth state. | Confirmed visibility and behavior for authenticated and unauthenticated users. | [379c248](https://github.com/JoshuaCottle/game_blog/commit/379c248) |
+| Improve deployment reproducibility documentation | "Create a practical Heroku deployment checklist including required files, config vars, and migration steps." | Produced a structured draft that I adapted to this repository's exact settings and stack. | Cross-checked against `Game_Blog/settings.py`, `Procfile`, and installed packages before publishing. | [379c248](https://github.com/JoshuaCottle/game_blog/commit/379c248), [db3b453](https://github.com/JoshuaCottle/game_blog/commit/db3b453) |
+
 ---
 
 ## Assessor Evidence Checklist
 
-Use this checklist to quickly verify the resubmission requirements:
+Use this checklist to quickly verify the assessed requirements:
 
 - [x] Deployment section is reproducible end-to-end without external docs.
 - [x] Required environment variables are listed and explained.
@@ -627,6 +622,7 @@ Use this checklist to quickly verify the resubmission requirements:
 - [x] AI section documents bug-fixing process and examples (LO8.2).
 - [x] AI section documents UX/performance optimization support (LO8.3).
 - [x] AI section includes workflow reflection and validation steps (LO8.4).
+- [x] AI section includes prompt examples mapped to commit evidence.
 - [x] Post edit form pre-fills existing tags correctly.
 - [x] Post detail page correctly renders like count.
 - [x] Homepage includes clear CTA for new users.
